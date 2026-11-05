@@ -2,6 +2,6 @@
 // The anon key is safe to publish: row-level security limits every row to its owner.
 // Leave blank to run phone-only.
 export const CONFIG = {
-  supabaseUrl: '',
-  supabaseAnonKey: ''
+  supabaseUrl: 'https://spelszsuxxqpkubjzfne.supabase.co/rest/v1/',
+  supabaseAnonKey: 'sb_publishable_yZiRYY3tbNO2WDqN2K4KZQ_h6zZ7tMa'
 };
