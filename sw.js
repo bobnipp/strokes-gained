@@ -1,5 +1,5 @@
 // Bump VERSION on every deploy so phones pick up the new files.
-const VERSION = 'v1';
+const VERSION = 'v1.01';
 const SHELL = `shell-${VERSION}`, RUNTIME = 'runtime-v1';
 const FILES = [
   './', 'index.html', 'app.css', 'ds.css', 'config.js', 'manifest.webmanifest',
@@ -24,6 +24,11 @@ self.addEventListener('fetch', e => {
   if (url.hostname.endsWith('supabase.co')) return; // live data, never cached
 
   if (url.origin === location.origin) {
+    if (url.pathname.endsWith('/config.js')) {
+      e.respondWith(fetch(req).then(r => { if (r.ok) caches.open(SHELL).then(c => c.put(req, r.clone())); return r; })
+        .catch(() => caches.match(req, { ignoreSearch: true })));
+      return;
+    }
     // App shell: cache first, so the app opens instantly with no signal.
     e.respondWith(caches.match(req, { ignoreSearch: true }).then(hit => hit ||
       fetch(req).catch(() => req.mode === 'navigate' ? caches.match('index.html') : Response.error())));
