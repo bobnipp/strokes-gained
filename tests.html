@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SG calculation tests</title>
+<link rel="stylesheet" href="ds.css">
+<style>body{margin:0;padding:32px 24px;font-family:var(--font-body);background:var(--color-bg);color:var(--color-text)}h1{font:800 28px var(--font-heading);margin:0 0 6px}p{margin:0 0 20px;color:var(--color-neutral-700)}table{border-collapse:collapse;width:100%;max-width:860px;border-top:2px solid var(--color-divider)}td{padding:8px 12px 8px 0;border-bottom:1px solid var(--color-divider);font:400 14px var(--font-body);vertical-align:top}td:first-child{font-weight:600;width:70px}.fail{color:var(--color-accent-700)}</style>
+</head><body>
+<h1>Strokes gained calculation tests</h1>
+<p id="sum">Running…</p>
+<table id="out"></table>
+<script type="module">
+import { loadBaseline, expected, holeSG } from './js/sg.js';
+const B = await loadBaseline('baseline/broadie-2011-scratch-v1.json');
+const rows = [], near = (a, b) => Math.abs(a - b) < 0.0005;
+const check = (name, ok, detail = '') => rows.push({ name, ok, detail });
+const base = { tee_result: 'fairway', go_for_green_on: null, layup_from_yds: null, layup_lie: null, short_game_shots: 0 };
+const sumCats = r => Object.values(r.cats).reduce((s, v) => s + (v || 0), 0);
+
+check('Interpolation: fairway 150 yds = 3.045', near(expected(B, 'fairway', 150), 3.045), expected(B, 'fairway', 150).toFixed(4));
+
+let r = holeSG(B, { par: 4, yds: 400 }, { ...base, approach_from_yds: 140, approach_result: 'green', first_putt_ft: 20, putts: 2 });
+check('Par 4 400: fairway, 140 → 20 ft, 2 putts', r.score === 4 && near(r.cats.ott, 0.15) && near(r.cats.app, 0.115) && r.cats.arg === null && near(r.cats.putt, -0.105) && near(r.total, 0.16),
+  `score ${r.score} · tee ${r.cats.ott.toFixed(3)} · app ${r.cats.app.toFixed(3)} · putt ${r.cats.putt.toFixed(3)} · total ${r.total.toFixed(3)} (expect 4 · 0.150 · 0.115 · −0.105 · 0.160)`);
+
+r = holeSG(B, { par: 3, yds: 180 }, { ...base, tee_result: null, approach_from_yds: 180, approach_result: 'green', first_putt_ft: 30, putts: 2 });
+check('Par 3 180: green 30 ft, 2 putts', r.score === 3 && r.cats.ott === null && near(r.cats.app, 0.215) && near(r.cats.putt, 0.005) && near(r.total, 0.22),
+  `app ${r.cats.app.toFixed(3)} · putt ${r.cats.putt.toFixed(3)} · total ${r.total.toFixed(3)} (expect 0.215 · 0.005 · 0.220)`);
+
+r = holeSG(B, { par: 5, yds: 520 }, { ...base, go_for_green_on: 3, layup_from_yds: 260, layup_lie: 'fairway', approach_from_yds: 100, approach_result: 'green', first_putt_ft: 10, putts: 1 });
+check('Par 5 520 layup: 260 → 100 → 10 ft, 1 putt', r.score === 4 && near(r.cats.ott, 0.03) && near(r.cats.app, 0.045) && near(r.cats.putt, 0.635) && near(r.total, 0.71),
+  `tee ${r.cats.ott.toFixed(3)} · app ${r.cats.app.toFixed(3)} · putt ${r.cats.putt.toFixed(3)} · total ${r.total.toFixed(3)} (expect 0.030 · 0.045 · 0.635 · 0.710)`);
+
+r = holeSG(B, { par: 4, yds: 400 }, { ...base, tee_result: 'penalty', approach_from_yds: 150, approach_result: 'sand', short_game_shots: 1, first_putt_ft: 6, putts: 1 });
+check('Penalty off tee counts 1 stroke, next shot from rough', r.score === 5 && near(r.cats.ott, -1.13) && near(sumCats(r), r.total),
+  `score ${r.score} · tee ${r.cats.ott.toFixed(3)} (expect 5 · −1.130)`);
+
+r = holeSG(B, { par: 4, yds: 380 }, { ...base, approach_from_yds: 120, approach_result: 'green', first_putt_ft: null, putts: 0 });
+check('Holed approach: putting is n/a, score 2', r.score === 2 && r.cats.putt === null && near(sumCats(r), r.total), `score ${r.score}`);
+
+r = holeSG(B, { par: 4, yds: 420 }, { ...base, approach_from_yds: 180, approach_result: 'rough', short_game_shots: 1, first_putt_ft: null, putts: 0 });
+check('Chip-in from rough: ARG only, score 3', r.score === 3 && r.cats.putt === null && r.cats.arg !== null && near(sumCats(r), r.total), `arg ${r.cats.arg.toFixed(3)}`);
+
+let ok = true;
+for (const par of [3, 4, 5]) for (const fin of ['green', 'fringe', 'rough', 'sand']) for (const putts of [0, 1, 2, 3]) {
+  const yds = { 3: 190, 4: 430, 5: 550 }[par];
+  const e = { ...base, go_for_green_on: par === 5 ? 3 : null, layup_from_yds: 250, layup_lie: 'rough', approach_from_yds: par === 3 ? yds : 110,
+    approach_result: fin, short_game_shots: fin === 'green' ? 0 : 2, first_putt_ft: putts ? 12 : null, putts };
+  const x = holeSG(B, { par, yds }, e);
+  if (!near(sumCats(x), x.total) || !near(x.total, expected(B, 'tee', yds) - x.score)) ok = false;
+}
+check('Every combination: categories sum to total = E(tee) − score', ok, '48 combinations');
+
+const pass = rows.filter(r => r.ok).length;
+document.getElementById('sum').textContent = `${pass} of ${rows.length} passed · baseline ${B.id}`;
+document.getElementById('out').innerHTML = rows.map(r => `<tr><td class="${r.ok ? '' : 'fail'}">${r.ok ? 'Pass' : 'FAIL'}</td><td>${r.name}<br><span style="color:var(--color-neutral-700);font-size:12px">${r.detail}</span></td></tr>`).join('');
+</script>
+</body></html>

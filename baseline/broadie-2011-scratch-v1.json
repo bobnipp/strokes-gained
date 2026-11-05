@@ -1,0 +1,22 @@
+{
+  "id": "broadie-2011-scratch-v1",
+  "source": "Mark Broadie, 'Assessing Golfer Performance on the PGA TOUR', Interfaces 42(2), 2012; also 'Every Shot Counts' (2014). PGA Tour expected strokes to hole out, from ShotLink data.",
+  "verify": "Tour values were transcribed for this app. Check each row against the published table before relying on the numbers.",
+  "extrapolated": "fairway/rough/sand at 5 and 10 yds and green at 1-2 ft are not in the published table; they were extrapolated.",
+  "units": { "tee": "yds", "fairway": "yds", "rough": "yds", "sand": "yds", "green": "ft" },
+  "scratch_offset": {
+    "note": "Estimate, not published. Added to every expected value for that lie so a typical scratch round totals about 0. Approx. split per 18: tee 0.9, approach 1.4, around green 0.4, putting 0.4 strokes.",
+    "tee": 0.17,
+    "fairway": 0.10,
+    "rough": 0.10,
+    "sand": 0.10,
+    "green": 0.025
+  },
+  "tables": {
+    "tee": [[100,2.92],[120,2.99],[140,2.97],[160,2.99],[180,3.05],[200,3.12],[220,3.17],[240,3.25],[260,3.45],[280,3.65],[300,3.71],[320,3.79],[340,3.86],[360,3.92],[380,3.96],[400,3.99],[420,4.02],[440,4.08],[460,4.17],[480,4.28],[500,4.41],[520,4.54],[540,4.65],[560,4.74],[580,4.79],[600,4.82]],
+    "fairway": [[5,2.15],[10,2.25],[20,2.40],[40,2.60],[60,2.70],[80,2.75],[100,2.80],[120,2.85],[140,2.91],[160,2.98],[180,3.08],[200,3.19],[220,3.32],[240,3.45],[260,3.58],[280,3.69],[300,3.78],[320,3.84],[340,3.88],[360,3.95],[380,4.03],[400,4.11]],
+    "rough": [[5,2.30],[10,2.40],[20,2.59],[40,2.78],[60,2.91],[80,2.96],[100,3.02],[120,3.08],[140,3.15],[160,3.23],[180,3.31],[200,3.42],[220,3.53],[240,3.64],[260,3.74],[280,3.83],[300,3.90],[320,3.95],[340,4.02],[360,4.11],[380,4.21],[400,4.30]],
+    "sand": [[5,2.40],[10,2.43],[20,2.53],[40,2.82],[60,3.15],[80,3.24],[100,3.23],[120,3.21],[140,3.22],[160,3.28],[180,3.40],[200,3.55],[220,3.70],[240,3.84],[260,3.93],[280,4.00],[300,4.04]],
+    "green": [[1,1.00],[2,1.01],[3,1.04],[4,1.13],[5,1.23],[6,1.34],[7,1.42],[8,1.50],[9,1.56],[10,1.61],[15,1.78],[20,1.87],[30,1.98],[40,2.06],[50,2.14],[60,2.21],[90,2.40]]
+  }
+}
