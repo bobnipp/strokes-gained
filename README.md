@@ -21,6 +21,8 @@ Modules need a local web server, not file://:
 
 Then open http://localhost:8000 and http://localhost:8000/tests.html.
 
+resources/* has sample data that can be imported for testing.
+
 ## Baseline
 Tour values from Broadie's published table, plus an estimated per-lie offset
 so a typical scratch round totals about 0. Check the tour rows against the

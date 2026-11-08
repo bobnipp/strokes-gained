@@ -1,0 +1,7365 @@
+{
+  "app": "strokes-gained",
+  "exported_at": "2026-11-08T18:37:12.018Z",
+  "baseline_id": "broadie-2011-scratch-v1",
+  "courses": [
+    {
+      "id": "sample-course-marsh-creek",
+      "name": "Marsh Creek GC (sample)",
+      "tees": [
+        {
+          "name": "Blue",
+          "holes": [
+            {
+              "par": 4,
+              "yds": 395
+            },
+            {
+              "par": 5,
+              "yds": 532
+            },
+            {
+              "par": 3,
+              "yds": 178
+            },
+            {
+              "par": 4,
+              "yds": 441
+            },
+            {
+              "par": 4,
+              "yds": 372
+            },
+            {
+              "par": 3,
+              "yds": 204
+            },
+            {
+              "par": 4,
+              "yds": 418
+            },
+            {
+              "par": 5,
+              "yds": 521
+            },
+            {
+              "par": 4,
+              "yds": 436
+            },
+            {
+              "par": 4,
+              "yds": 401
+            },
+            {
+              "par": 3,
+              "yds": 165
+            },
+            {
+              "par": 5,
+              "yds": 548
+            },
+            {
+              "par": 4,
+              "yds": 428
+            },
+            {
+              "par": 4,
+              "yds": 389
+            },
+            {
+              "par": 3,
+              "yds": 212
+            },
+            {
+              "par": 4,
+              "yds": 452
+            },
+            {
+              "par": 5,
+              "yds": 560
+            },
+            {
+              "par": 4,
+              "yds": 447
+            }
+          ]
+        },
+        {
+          "name": "White",
+          "holes": [
+            {
+              "par": 4,
+              "yds": 365
+            },
+            {
+              "par": 5,
+              "yds": 495
+            },
+            {
+              "par": 3,
+              "yds": 165
+            },
+            {
+              "par": 4,
+              "yds": 410
+            },
+            {
+              "par": 4,
+              "yds": 345
+            },
+            {
+              "par": 3,
+              "yds": 190
+            },
+            {
+              "par": 4,
+              "yds": 390
+            },
+            {
+              "par": 5,
+              "yds": 485
+            },
+            {
+              "par": 4,
+              "yds": 405
+            },
+            {
+              "par": 4,
+              "yds": 375
+            },
+            {
+              "par": 3,
+              "yds": 155
+            },
+            {
+              "par": 5,
+              "yds": 510
+            },
+            {
+              "par": 4,
+              "yds": 400
+            },
+            {
+              "par": 4,
+              "yds": 360
+            },
+            {
+              "par": 3,
+              "yds": 195
+            },
+            {
+              "par": 4,
+              "yds": 420
+            },
+            {
+              "par": 5,
+              "yds": 520
+            },
+            {
+              "par": 4,
+              "yds": 415
+            }
+          ]
+        }
+      ],
+      "deleted_at": null,
+      "updated_at": "2026-04-01T18:00:00.000Z"
+    }
+  ],
+  "rounds": [
+    {
+      "id": "sample-round-01",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-04-11",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-04-22",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "White",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 365
+        },
+        {
+          "par": 5,
+          "yds": 495
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 4,
+          "yds": 410
+        },
+        {
+          "par": 4,
+          "yds": 345
+        },
+        {
+          "par": 3,
+          "yds": 190
+        },
+        {
+          "par": 4,
+          "yds": 390
+        },
+        {
+          "par": 5,
+          "yds": 485
+        },
+        {
+          "par": 4,
+          "yds": 405
+        },
+        {
+          "par": 4,
+          "yds": 375
+        },
+        {
+          "par": 3,
+          "yds": 155
+        },
+        {
+          "par": 5,
+          "yds": 510
+        },
+        {
+          "par": 4,
+          "yds": 400
+        },
+        {
+          "par": 4,
+          "yds": 360
+        },
+        {
+          "par": 3,
+          "yds": 195
+        },
+        {
+          "par": 4,
+          "yds": 420
+        },
+        {
+          "par": 5,
+          "yds": 520
+        },
+        {
+          "par": 4,
+          "yds": 415
+        }
+      ],
+      "played_on": "2026-05-02",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-05-13",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-05-23",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-06-03",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-06-13",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-08",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "White",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 365
+        },
+        {
+          "par": 5,
+          "yds": 495
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 4,
+          "yds": 410
+        },
+        {
+          "par": 4,
+          "yds": 345
+        },
+        {
+          "par": 3,
+          "yds": 190
+        },
+        {
+          "par": 4,
+          "yds": 390
+        },
+        {
+          "par": 5,
+          "yds": 485
+        },
+        {
+          "par": 4,
+          "yds": 405
+        },
+        {
+          "par": 4,
+          "yds": 375
+        },
+        {
+          "par": 3,
+          "yds": 155
+        },
+        {
+          "par": 5,
+          "yds": 510
+        },
+        {
+          "par": 4,
+          "yds": 400
+        },
+        {
+          "par": 4,
+          "yds": 360
+        },
+        {
+          "par": 3,
+          "yds": 195
+        },
+        {
+          "par": 4,
+          "yds": 420
+        },
+        {
+          "par": 5,
+          "yds": 520
+        },
+        {
+          "par": 4,
+          "yds": 415
+        }
+      ],
+      "played_on": "2026-06-24",
+      "range": "front",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-06-24T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-07-04",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-07-15",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-07-25",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-08-05",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "White",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 365
+        },
+        {
+          "par": 5,
+          "yds": 495
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 4,
+          "yds": 410
+        },
+        {
+          "par": 4,
+          "yds": 345
+        },
+        {
+          "par": 3,
+          "yds": 190
+        },
+        {
+          "par": 4,
+          "yds": 390
+        },
+        {
+          "par": 5,
+          "yds": 485
+        },
+        {
+          "par": 4,
+          "yds": 405
+        },
+        {
+          "par": 4,
+          "yds": 375
+        },
+        {
+          "par": 3,
+          "yds": 155
+        },
+        {
+          "par": 5,
+          "yds": 510
+        },
+        {
+          "par": 4,
+          "yds": 400
+        },
+        {
+          "par": 4,
+          "yds": 360
+        },
+        {
+          "par": 3,
+          "yds": 195
+        },
+        {
+          "par": 4,
+          "yds": 420
+        },
+        {
+          "par": 5,
+          "yds": 520
+        },
+        {
+          "par": 4,
+          "yds": 415
+        }
+      ],
+      "played_on": "2026-08-15",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-08-26",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-15",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-09-05",
+      "range": "back",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-09-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-09-16",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-09-26",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "White",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 365
+        },
+        {
+          "par": 5,
+          "yds": 495
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 4,
+          "yds": 410
+        },
+        {
+          "par": 4,
+          "yds": 345
+        },
+        {
+          "par": 3,
+          "yds": 190
+        },
+        {
+          "par": 4,
+          "yds": 390
+        },
+        {
+          "par": 5,
+          "yds": 485
+        },
+        {
+          "par": 4,
+          "yds": 405
+        },
+        {
+          "par": 4,
+          "yds": 375
+        },
+        {
+          "par": 3,
+          "yds": 155
+        },
+        {
+          "par": 5,
+          "yds": 510
+        },
+        {
+          "par": 4,
+          "yds": 400
+        },
+        {
+          "par": 4,
+          "yds": 360
+        },
+        {
+          "par": 3,
+          "yds": 195
+        },
+        {
+          "par": 4,
+          "yds": 420
+        },
+        {
+          "par": 5,
+          "yds": 520
+        },
+        {
+          "par": 4,
+          "yds": 415
+        }
+      ],
+      "played_on": "2026-10-07",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-10-17",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20",
+      "course_id": "sample-course-marsh-creek",
+      "course_name": "Marsh Creek GC (sample)",
+      "tee_name": "Blue",
+      "holes_snapshot": [
+        {
+          "par": 4,
+          "yds": 395
+        },
+        {
+          "par": 5,
+          "yds": 532
+        },
+        {
+          "par": 3,
+          "yds": 178
+        },
+        {
+          "par": 4,
+          "yds": 441
+        },
+        {
+          "par": 4,
+          "yds": 372
+        },
+        {
+          "par": 3,
+          "yds": 204
+        },
+        {
+          "par": 4,
+          "yds": 418
+        },
+        {
+          "par": 5,
+          "yds": 521
+        },
+        {
+          "par": 4,
+          "yds": 436
+        },
+        {
+          "par": 4,
+          "yds": 401
+        },
+        {
+          "par": 3,
+          "yds": 165
+        },
+        {
+          "par": 5,
+          "yds": 548
+        },
+        {
+          "par": 4,
+          "yds": 428
+        },
+        {
+          "par": 4,
+          "yds": 389
+        },
+        {
+          "par": 3,
+          "yds": 212
+        },
+        {
+          "par": 4,
+          "yds": 452
+        },
+        {
+          "par": 5,
+          "yds": 560
+        },
+        {
+          "par": 4,
+          "yds": 447
+        }
+      ],
+      "played_on": "2026-10-28",
+      "range": "18",
+      "status": "saved",
+      "baseline_id": "broadie-2011-scratch-v1",
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    }
+  ],
+  "holes": [
+    {
+      "id": "sample-round-01-1",
+      "round_id": "sample-round-01",
+      "hole": 1,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 150,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 6,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-2",
+      "round_id": "sample-round-01",
+      "hole": 2,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 275,
+      "layup_lie": "fairway",
+      "approach_from_yds": 105,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 6,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-3",
+      "round_id": "sample-round-01",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 41,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-4",
+      "round_id": "sample-round-01",
+      "hole": 4,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 35,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-5",
+      "round_id": "sample-round-01",
+      "hole": 5,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 115,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 6,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-6",
+      "round_id": "sample-round-01",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 4,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-7",
+      "round_id": "sample-round-01",
+      "hole": 7,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 175,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 8,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-8",
+      "round_id": "sample-round-01",
+      "hole": 8,
+      "tee_result": "rough",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 280,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 13,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-9",
+      "round_id": "sample-round-01",
+      "hole": 9,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 200,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 18,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-10",
+      "round_id": "sample-round-01",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 17,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-11",
+      "round_id": "sample-round-01",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 47,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-12",
+      "round_id": "sample-round-01",
+      "hole": 12,
+      "tee_result": "rough",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 290,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-13",
+      "round_id": "sample-round-01",
+      "hole": 13,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 180,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 51,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-14",
+      "round_id": "sample-round-01",
+      "hole": 14,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 135,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-15",
+      "round_id": "sample-round-01",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 57,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-16",
+      "round_id": "sample-round-01",
+      "hole": 16,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 44,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-17",
+      "round_id": "sample-round-01",
+      "hole": 17,
+      "tee_result": "fairway",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 300,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 6,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-01-18",
+      "round_id": "sample-round-01",
+      "hole": 18,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 205,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 52,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-04-11T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-1",
+      "round_id": "sample-round-02",
+      "hole": 1,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 140,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 25,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-2",
+      "round_id": "sample-round-02",
+      "hole": 2,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 295,
+      "layup_lie": "fairway",
+      "approach_from_yds": 105,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 12,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-3",
+      "round_id": "sample-round-02",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 7,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-4",
+      "round_id": "sample-round-02",
+      "hole": 4,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 200,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 18,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-5",
+      "round_id": "sample-round-02",
+      "hole": 5,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 130,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 31,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-6",
+      "round_id": "sample-round-02",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-7",
+      "round_id": "sample-round-02",
+      "hole": 7,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 170,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 8,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-8",
+      "round_id": "sample-round-02",
+      "hole": 8,
+      "tee_result": "rough",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 280,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": null,
+      "putts": 0,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-9",
+      "round_id": "sample-round-02",
+      "hole": 9,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 14,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-10",
+      "round_id": "sample-round-02",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 160,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 16,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-11",
+      "round_id": "sample-round-02",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 6,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-12",
+      "round_id": "sample-round-02",
+      "hole": 12,
+      "tee_result": "penalty",
+      "go_for_green_on": 3,
+      "layup_from_yds": 300,
+      "layup_lie": "rough",
+      "approach_from_yds": 95,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 19,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-13",
+      "round_id": "sample-round-02",
+      "hole": 13,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 175,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 15,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-14",
+      "round_id": "sample-round-02",
+      "hole": 14,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 140,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 33,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-15",
+      "round_id": "sample-round-02",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "fringe",
+      "short_game_shots": 2,
+      "first_putt_ft": 13,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-16",
+      "round_id": "sample-round-02",
+      "hole": 16,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 205,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 30,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-17",
+      "round_id": "sample-round-02",
+      "hole": 17,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 300,
+      "layup_lie": "fairway",
+      "approach_from_yds": 90,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 22,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-02-18",
+      "round_id": "sample-round-02",
+      "hole": 18,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 205,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 14,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-04-22T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-1",
+      "round_id": "sample-round-03",
+      "hole": 1,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 110,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 28,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-2",
+      "round_id": "sample-round-03",
+      "hole": 2,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 250,
+      "layup_lie": "fairway",
+      "approach_from_yds": 60,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 18,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-3",
+      "round_id": "sample-round-03",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 5,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-4",
+      "round_id": "sample-round-03",
+      "hole": 4,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 170,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 11,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-5",
+      "round_id": "sample-round-03",
+      "hole": 5,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 100,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 31,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-6",
+      "round_id": "sample-round-03",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 13,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-7",
+      "round_id": "sample-round-03",
+      "hole": 7,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 140,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 23,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-8",
+      "round_id": "sample-round-03",
+      "hole": 8,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 240,
+      "layup_lie": "fairway",
+      "approach_from_yds": 85,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 9,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-9",
+      "round_id": "sample-round-03",
+      "hole": 9,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 50,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-10",
+      "round_id": "sample-round-03",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 125,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 13,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-11",
+      "round_id": "sample-round-03",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 11,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-12",
+      "round_id": "sample-round-03",
+      "hole": 12,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 250,
+      "layup_lie": "rough",
+      "approach_from_yds": 70,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 16,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-13",
+      "round_id": "sample-round-03",
+      "hole": 13,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 140,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 30,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-14",
+      "round_id": "sample-round-03",
+      "hole": 14,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 110,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 5,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-15",
+      "round_id": "sample-round-03",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 49,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-16",
+      "round_id": "sample-round-03",
+      "hole": 16,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 50,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-17",
+      "round_id": "sample-round-03",
+      "hole": 17,
+      "tee_result": "rough",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 270,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 13,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-03-18",
+      "round_id": "sample-round-03",
+      "hole": 18,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 160,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 6,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-05-02T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-1",
+      "round_id": "sample-round-04",
+      "hole": 1,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 140,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 4,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-2",
+      "round_id": "sample-round-04",
+      "hole": 2,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 290,
+      "layup_lie": "fairway",
+      "approach_from_yds": 105,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 4,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-3",
+      "round_id": "sample-round-04",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 32,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-4",
+      "round_id": "sample-round-04",
+      "hole": 4,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 15,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-5",
+      "round_id": "sample-round-04",
+      "hole": 5,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 135,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 29,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-6",
+      "round_id": "sample-round-04",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 16,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-7",
+      "round_id": "sample-round-04",
+      "hole": 7,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 6,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-8",
+      "round_id": "sample-round-04",
+      "hole": 8,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 280,
+      "layup_lie": "fairway",
+      "approach_from_yds": 100,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-9",
+      "round_id": "sample-round-04",
+      "hole": 9,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 185,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 51,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-10",
+      "round_id": "sample-round-04",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 150,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 6,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-11",
+      "round_id": "sample-round-04",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 52,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-12",
+      "round_id": "sample-round-04",
+      "hole": 12,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 310,
+      "layup_lie": "fairway",
+      "approach_from_yds": 95,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 33,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-13",
+      "round_id": "sample-round-04",
+      "hole": 13,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 175,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 16,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-14",
+      "round_id": "sample-round-04",
+      "hole": 14,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 145,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 35,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-15",
+      "round_id": "sample-round-04",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 18,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-16",
+      "round_id": "sample-round-04",
+      "hole": 16,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 200,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 10,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-17",
+      "round_id": "sample-round-04",
+      "hole": 17,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 300,
+      "layup_lie": "fairway",
+      "approach_from_yds": 65,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 15,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-04-18",
+      "round_id": "sample-round-04",
+      "hole": 18,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 15,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-05-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-1",
+      "round_id": "sample-round-05",
+      "hole": 1,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 145,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": null,
+      "putts": 0,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-2",
+      "round_id": "sample-round-05",
+      "hole": 2,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 295,
+      "layup_lie": "fairway",
+      "approach_from_yds": 70,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 7,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-3",
+      "round_id": "sample-round-05",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 42,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-4",
+      "round_id": "sample-round-05",
+      "hole": 4,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 14,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-5",
+      "round_id": "sample-round-05",
+      "hole": 5,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 125,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 40,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-6",
+      "round_id": "sample-round-05",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 11,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-7",
+      "round_id": "sample-round-05",
+      "hole": 7,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "sand",
+      "short_game_shots": 2,
+      "first_putt_ft": 15,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-8",
+      "round_id": "sample-round-05",
+      "hole": 8,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 280,
+      "layup_lie": "fairway",
+      "approach_from_yds": 80,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 14,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-9",
+      "round_id": "sample-round-05",
+      "hole": 9,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 175,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 5,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-10",
+      "round_id": "sample-round-05",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 160,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 40,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-11",
+      "round_id": "sample-round-05",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": null,
+      "putts": 0,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-12",
+      "round_id": "sample-round-05",
+      "hole": 12,
+      "tee_result": "rough",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 290,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 10,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-13",
+      "round_id": "sample-round-05",
+      "hole": 13,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 185,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 18,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-14",
+      "round_id": "sample-round-05",
+      "hole": 14,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 135,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 12,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-15",
+      "round_id": "sample-round-05",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 64,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-16",
+      "round_id": "sample-round-05",
+      "hole": 16,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 12,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-17",
+      "round_id": "sample-round-05",
+      "hole": 17,
+      "tee_result": "fairway",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 320,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 4,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-05-18",
+      "round_id": "sample-round-05",
+      "hole": 18,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 39,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-05-23T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-1",
+      "round_id": "sample-round-06",
+      "hole": 1,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 150,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 4,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-2",
+      "round_id": "sample-round-06",
+      "hole": 2,
+      "tee_result": "sand",
+      "go_for_green_on": 3,
+      "layup_from_yds": 280,
+      "layup_lie": "fairway",
+      "approach_from_yds": 75,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 18,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-3",
+      "round_id": "sample-round-06",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 17,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-4",
+      "round_id": "sample-round-06",
+      "hole": 4,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 16,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-5",
+      "round_id": "sample-round-06",
+      "hole": 5,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 120,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 5,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-6",
+      "round_id": "sample-round-06",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 13,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-7",
+      "round_id": "sample-round-06",
+      "hole": 7,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 48,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-8",
+      "round_id": "sample-round-06",
+      "hole": 8,
+      "tee_result": "fairway",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 275,
+      "approach_result": "fringe",
+      "short_game_shots": 2,
+      "first_putt_ft": 12,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-9",
+      "round_id": "sample-round-06",
+      "hole": 9,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 185,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 43,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-10",
+      "round_id": "sample-round-06",
+      "hole": 10,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 150,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 16,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-11",
+      "round_id": "sample-round-06",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 12,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-12",
+      "round_id": "sample-round-06",
+      "hole": 12,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 295,
+      "layup_lie": "fairway",
+      "approach_from_yds": 50,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 20,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-13",
+      "round_id": "sample-round-06",
+      "hole": 13,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 180,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 13,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-14",
+      "round_id": "sample-round-06",
+      "hole": 14,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 145,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 37,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-15",
+      "round_id": "sample-round-06",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 33,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-16",
+      "round_id": "sample-round-06",
+      "hole": 16,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 6,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-17",
+      "round_id": "sample-round-06",
+      "hole": 17,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 300,
+      "layup_lie": "fairway",
+      "approach_from_yds": 60,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 6,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-06-18",
+      "round_id": "sample-round-06",
+      "hole": 18,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-03T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-1",
+      "round_id": "sample-round-07",
+      "hole": 1,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 135,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 6,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-2",
+      "round_id": "sample-round-07",
+      "hole": 2,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 280,
+      "layup_lie": "fairway",
+      "approach_from_yds": 70,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 23,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-3",
+      "round_id": "sample-round-07",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 42,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-4",
+      "round_id": "sample-round-07",
+      "hole": 4,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 185,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-5",
+      "round_id": "sample-round-07",
+      "hole": 5,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 130,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 22,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-6",
+      "round_id": "sample-round-07",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 9,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-7",
+      "round_id": "sample-round-07",
+      "hole": 7,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 170,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 11,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-8",
+      "round_id": "sample-round-07",
+      "hole": 8,
+      "tee_result": "sand",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 275,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 14,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-9",
+      "round_id": "sample-round-07",
+      "hole": 9,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 175,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 49,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-10",
+      "round_id": "sample-round-07",
+      "hole": 10,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 150,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 21,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-11",
+      "round_id": "sample-round-07",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 36,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-12",
+      "round_id": "sample-round-07",
+      "hole": 12,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 285,
+      "layup_lie": "fairway",
+      "approach_from_yds": 55,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 21,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-13",
+      "round_id": "sample-round-07",
+      "hole": 13,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 170,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 13,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-14",
+      "round_id": "sample-round-07",
+      "hole": 14,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 150,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-15",
+      "round_id": "sample-round-07",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 12,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-16",
+      "round_id": "sample-round-07",
+      "hole": 16,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 54,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-17",
+      "round_id": "sample-round-07",
+      "hole": 17,
+      "tee_result": "fairway",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 315,
+      "approach_result": "fringe",
+      "short_game_shots": 2,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-07-18",
+      "round_id": "sample-round-07",
+      "hole": 18,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 55,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-13T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-08-1",
+      "round_id": "sample-round-08",
+      "hole": 1,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 105,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 8,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-06-24T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-08-2",
+      "round_id": "sample-round-08",
+      "hole": 2,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 245,
+      "layup_lie": "fairway",
+      "approach_from_yds": 85,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 29,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-24T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-08-3",
+      "round_id": "sample-round-08",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 45,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-24T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-08-4",
+      "round_id": "sample-round-08",
+      "hole": 4,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 170,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 6,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-24T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-08-5",
+      "round_id": "sample-round-08",
+      "hole": 5,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 95,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 23,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-24T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-08-6",
+      "round_id": "sample-round-08",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 44,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-24T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-08-7",
+      "round_id": "sample-round-08",
+      "hole": 7,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 130,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 14,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-24T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-08-8",
+      "round_id": "sample-round-08",
+      "hole": 8,
+      "tee_result": "rough",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 235,
+      "approach_result": "sand",
+      "short_game_shots": 2,
+      "first_putt_ft": 9,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-24T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-08-9",
+      "round_id": "sample-round-08",
+      "hole": 9,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 10,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-06-24T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-1",
+      "round_id": "sample-round-09",
+      "hole": 1,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 145,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 16,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-2",
+      "round_id": "sample-round-09",
+      "hole": 2,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 285,
+      "layup_lie": "fairway",
+      "approach_from_yds": 60,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 21,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-3",
+      "round_id": "sample-round-09",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 47,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-4",
+      "round_id": "sample-round-09",
+      "hole": 4,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 12,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-5",
+      "round_id": "sample-round-09",
+      "hole": 5,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 110,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 10,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-6",
+      "round_id": "sample-round-09",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 38,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-7",
+      "round_id": "sample-round-09",
+      "hole": 7,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 160,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 26,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-8",
+      "round_id": "sample-round-09",
+      "hole": 8,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 270,
+      "layup_lie": "rough",
+      "approach_from_yds": 105,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 9,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-9",
+      "round_id": "sample-round-09",
+      "hole": 9,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 180,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 26,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-10",
+      "round_id": "sample-round-09",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 31,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-11",
+      "round_id": "sample-round-09",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 15,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-12",
+      "round_id": "sample-round-09",
+      "hole": 12,
+      "tee_result": "fairway",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 300,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 16,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-13",
+      "round_id": "sample-round-09",
+      "hole": 13,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 175,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 49,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-14",
+      "round_id": "sample-round-09",
+      "hole": 14,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 135,
+      "approach_result": "fringe",
+      "short_game_shots": 2,
+      "first_putt_ft": 9,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-15",
+      "round_id": "sample-round-09",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 15,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-16",
+      "round_id": "sample-round-09",
+      "hole": 16,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 205,
+      "approach_result": "fringe",
+      "short_game_shots": 2,
+      "first_putt_ft": 9,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-17",
+      "round_id": "sample-round-09",
+      "hole": 17,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 315,
+      "layup_lie": "sand",
+      "approach_from_yds": 85,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 19,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-09-18",
+      "round_id": "sample-round-09",
+      "hole": 18,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 200,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 58,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-04T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-1",
+      "round_id": "sample-round-10",
+      "hole": 1,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 150,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 26,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-2",
+      "round_id": "sample-round-10",
+      "hole": 2,
+      "tee_result": "penalty",
+      "go_for_green_on": 3,
+      "layup_from_yds": 275,
+      "layup_lie": "rough",
+      "approach_from_yds": 60,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 19,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-3",
+      "round_id": "sample-round-10",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 10,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-4",
+      "round_id": "sample-round-10",
+      "hole": 4,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 180,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 8,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-5",
+      "round_id": "sample-round-10",
+      "hole": 5,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 120,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 3,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-6",
+      "round_id": "sample-round-10",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 12,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-7",
+      "round_id": "sample-round-10",
+      "hole": 7,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 21,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-8",
+      "round_id": "sample-round-10",
+      "hole": 8,
+      "tee_result": "rough",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 270,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 14,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-9",
+      "round_id": "sample-round-10",
+      "hole": 9,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 180,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-10",
+      "round_id": "sample-round-10",
+      "hole": 10,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 145,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 6,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-11",
+      "round_id": "sample-round-10",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 48,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-12",
+      "round_id": "sample-round-10",
+      "hole": 12,
+      "tee_result": "rough",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 285,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 7,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-13",
+      "round_id": "sample-round-10",
+      "hole": 13,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 170,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-14",
+      "round_id": "sample-round-10",
+      "hole": 14,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 125,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 30,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-15",
+      "round_id": "sample-round-10",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 51,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-16",
+      "round_id": "sample-round-10",
+      "hole": 16,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 205,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 3,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-17",
+      "round_id": "sample-round-10",
+      "hole": 17,
+      "tee_result": "penalty",
+      "go_for_green_on": 3,
+      "layup_from_yds": 295,
+      "layup_lie": "fairway",
+      "approach_from_yds": 105,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 8,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-10-18",
+      "round_id": "sample-round-10",
+      "hole": 18,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 13,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-1",
+      "round_id": "sample-round-11",
+      "hole": 1,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 145,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 43,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-2",
+      "round_id": "sample-round-11",
+      "hole": 2,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 270,
+      "layup_lie": "rough",
+      "approach_from_yds": 105,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 6,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-3",
+      "round_id": "sample-round-11",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 4,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-4",
+      "round_id": "sample-round-11",
+      "hole": 4,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 185,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 4,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-5",
+      "round_id": "sample-round-11",
+      "hole": 5,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 110,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 10,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-6",
+      "round_id": "sample-round-11",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 47,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-7",
+      "round_id": "sample-round-11",
+      "hole": 7,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 22,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-8",
+      "round_id": "sample-round-11",
+      "hole": 8,
+      "tee_result": "fairway",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 265,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 52,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-9",
+      "round_id": "sample-round-11",
+      "hole": 9,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 38,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-10",
+      "round_id": "sample-round-11",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 150,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 22,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-11",
+      "round_id": "sample-round-11",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 22,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-12",
+      "round_id": "sample-round-11",
+      "hole": 12,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 295,
+      "layup_lie": "rough",
+      "approach_from_yds": 90,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 25,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-13",
+      "round_id": "sample-round-11",
+      "hole": 13,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 185,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 10,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-14",
+      "round_id": "sample-round-11",
+      "hole": 14,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 135,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 30,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-15",
+      "round_id": "sample-round-11",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 10,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-16",
+      "round_id": "sample-round-11",
+      "hole": 16,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 205,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 50,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-17",
+      "round_id": "sample-round-11",
+      "hole": 17,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 300,
+      "layup_lie": "fairway",
+      "approach_from_yds": 55,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 15,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-11-18",
+      "round_id": "sample-round-11",
+      "hole": 18,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 200,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 14,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-07-25T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-1",
+      "round_id": "sample-round-12",
+      "hole": 1,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 140,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 24,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-2",
+      "round_id": "sample-round-12",
+      "hole": 2,
+      "tee_result": "sand",
+      "go_for_green_on": 3,
+      "layup_from_yds": 270,
+      "layup_lie": "rough",
+      "approach_from_yds": 90,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 18,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-3",
+      "round_id": "sample-round-12",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 11,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-4",
+      "round_id": "sample-round-12",
+      "hole": 4,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 53,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-5",
+      "round_id": "sample-round-12",
+      "hole": 5,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 130,
+      "approach_result": "fringe",
+      "short_game_shots": 2,
+      "first_putt_ft": 6,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-6",
+      "round_id": "sample-round-12",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 51,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-7",
+      "round_id": "sample-round-12",
+      "hole": 7,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 175,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 11,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-8",
+      "round_id": "sample-round-12",
+      "hole": 8,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 260,
+      "layup_lie": "fairway",
+      "approach_from_yds": 60,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 19,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-9",
+      "round_id": "sample-round-12",
+      "hole": 9,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 180,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 12,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-10",
+      "round_id": "sample-round-12",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 160,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 40,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-11",
+      "round_id": "sample-round-12",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 28,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-12",
+      "round_id": "sample-round-12",
+      "hole": 12,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 305,
+      "layup_lie": "sand",
+      "approach_from_yds": 80,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 20,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-13",
+      "round_id": "sample-round-12",
+      "hole": 13,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 175,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 26,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-14",
+      "round_id": "sample-round-12",
+      "hole": 14,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 145,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 8,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-15",
+      "round_id": "sample-round-12",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 29,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-16",
+      "round_id": "sample-round-12",
+      "hole": 16,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 200,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 26,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-17",
+      "round_id": "sample-round-12",
+      "hole": 17,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 295,
+      "layup_lie": "fairway",
+      "approach_from_yds": 75,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 24,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-12-18",
+      "round_id": "sample-round-12",
+      "hole": 18,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 185,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 9,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-08-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-1",
+      "round_id": "sample-round-13",
+      "hole": 1,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 120,
+      "approach_result": "fringe",
+      "short_game_shots": 2,
+      "first_putt_ft": 8,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-2",
+      "round_id": "sample-round-13",
+      "hole": 2,
+      "tee_result": "sand",
+      "go_for_green_on": 3,
+      "layup_from_yds": 245,
+      "layup_lie": "fairway",
+      "approach_from_yds": 70,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 25,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-3",
+      "round_id": "sample-round-13",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 24,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-4",
+      "round_id": "sample-round-13",
+      "hole": 4,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 38,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-5",
+      "round_id": "sample-round-13",
+      "hole": 5,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 90,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 15,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-6",
+      "round_id": "sample-round-13",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "fringe",
+      "short_game_shots": 2,
+      "first_putt_ft": 14,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-7",
+      "round_id": "sample-round-13",
+      "hole": 7,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 145,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 11,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-8",
+      "round_id": "sample-round-13",
+      "hole": 8,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 225,
+      "layup_lie": "fairway",
+      "approach_from_yds": 60,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 15,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-9",
+      "round_id": "sample-round-13",
+      "hole": 9,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 150,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 31,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-10",
+      "round_id": "sample-round-13",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 125,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 20,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-11",
+      "round_id": "sample-round-13",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 22,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-12",
+      "round_id": "sample-round-13",
+      "hole": 12,
+      "tee_result": "sand",
+      "go_for_green_on": 3,
+      "layup_from_yds": 260,
+      "layup_lie": "fairway",
+      "approach_from_yds": 105,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 29,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-13",
+      "round_id": "sample-round-13",
+      "hole": 13,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 23,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-14",
+      "round_id": "sample-round-13",
+      "hole": 14,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 100,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 21,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-15",
+      "round_id": "sample-round-13",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": null,
+      "putts": 0,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-16",
+      "round_id": "sample-round-13",
+      "hole": 16,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 25,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-17",
+      "round_id": "sample-round-13",
+      "hole": 17,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 255,
+      "layup_lie": "fairway",
+      "approach_from_yds": 70,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-13-18",
+      "round_id": "sample-round-13",
+      "hole": 18,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 170,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 24,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-15T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-1",
+      "round_id": "sample-round-14",
+      "hole": 1,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 145,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 7,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-2",
+      "round_id": "sample-round-14",
+      "hole": 2,
+      "tee_result": "sand",
+      "go_for_green_on": 3,
+      "layup_from_yds": 275,
+      "layup_lie": "fairway",
+      "approach_from_yds": 105,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 19,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-3",
+      "round_id": "sample-round-14",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 23,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-4",
+      "round_id": "sample-round-14",
+      "hole": 4,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 180,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 42,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-5",
+      "round_id": "sample-round-14",
+      "hole": 5,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 125,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 7,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-6",
+      "round_id": "sample-round-14",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 42,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-7",
+      "round_id": "sample-round-14",
+      "hole": 7,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 160,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 28,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-8",
+      "round_id": "sample-round-14",
+      "hole": 8,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 275,
+      "layup_lie": "fairway",
+      "approach_from_yds": 95,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 24,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-9",
+      "round_id": "sample-round-14",
+      "hole": 9,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 16,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-10",
+      "round_id": "sample-round-14",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 135,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 4,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-11",
+      "round_id": "sample-round-14",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 8,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-12",
+      "round_id": "sample-round-14",
+      "hole": 12,
+      "tee_result": "sand",
+      "go_for_green_on": 3,
+      "layup_from_yds": 305,
+      "layup_lie": "fairway",
+      "approach_from_yds": 70,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 24,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-13",
+      "round_id": "sample-round-14",
+      "hole": 13,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 180,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 13,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-14",
+      "round_id": "sample-round-14",
+      "hole": 14,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 135,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 24,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-15",
+      "round_id": "sample-round-14",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 13,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-16",
+      "round_id": "sample-round-14",
+      "hole": 16,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 205,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 12,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-17",
+      "round_id": "sample-round-14",
+      "hole": 17,
+      "tee_result": "fairway",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 305,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": null,
+      "putts": 0,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-14-18",
+      "round_id": "sample-round-14",
+      "hole": 18,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 180,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 43,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-08-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-15-10",
+      "round_id": "sample-round-15",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 150,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 31,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-09-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-15-11",
+      "round_id": "sample-round-15",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 11,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-15-12",
+      "round_id": "sample-round-15",
+      "hole": 12,
+      "tee_result": "rough",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 280,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 66,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-09-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-15-13",
+      "round_id": "sample-round-15",
+      "hole": 13,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 185,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 9,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-15-14",
+      "round_id": "sample-round-15",
+      "hole": 14,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 135,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 37,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-09-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-15-15",
+      "round_id": "sample-round-15",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 9,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-09-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-15-16",
+      "round_id": "sample-round-15",
+      "hole": 16,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 205,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 12,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-15-17",
+      "round_id": "sample-round-15",
+      "hole": 17,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 295,
+      "layup_lie": "fairway",
+      "approach_from_yds": 100,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-15-18",
+      "round_id": "sample-round-15",
+      "hole": 18,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 180,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 36,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-05T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-1",
+      "round_id": "sample-round-16",
+      "hole": 1,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 150,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 31,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-2",
+      "round_id": "sample-round-16",
+      "hole": 2,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 285,
+      "layup_lie": "fairway",
+      "approach_from_yds": 60,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-3",
+      "round_id": "sample-round-16",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 13,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-4",
+      "round_id": "sample-round-16",
+      "hole": 4,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 9,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-5",
+      "round_id": "sample-round-16",
+      "hole": 5,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 125,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 25,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-6",
+      "round_id": "sample-round-16",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 13,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-7",
+      "round_id": "sample-round-16",
+      "hole": 7,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 170,
+      "approach_result": "sand",
+      "short_game_shots": 2,
+      "first_putt_ft": 3,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-8",
+      "round_id": "sample-round-16",
+      "hole": 8,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 265,
+      "layup_lie": "fairway",
+      "approach_from_yds": 80,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 25,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-9",
+      "round_id": "sample-round-16",
+      "hole": 9,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 175,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 25,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-10",
+      "round_id": "sample-round-16",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 140,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 37,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-11",
+      "round_id": "sample-round-16",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 27,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-12",
+      "round_id": "sample-round-16",
+      "hole": 12,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 295,
+      "layup_lie": "fairway",
+      "approach_from_yds": 55,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 21,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-13",
+      "round_id": "sample-round-16",
+      "hole": 13,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 9,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-14",
+      "round_id": "sample-round-16",
+      "hole": 14,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 145,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 34,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-15",
+      "round_id": "sample-round-16",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 10,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-16",
+      "round_id": "sample-round-16",
+      "hole": 16,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 185,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 14,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-17",
+      "round_id": "sample-round-16",
+      "hole": 17,
+      "tee_result": "rough",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 300,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 4,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-16-18",
+      "round_id": "sample-round-16",
+      "hole": 18,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 185,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 22,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-09-16T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-1",
+      "round_id": "sample-round-17",
+      "hole": 1,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 135,
+      "approach_result": "rough",
+      "short_game_shots": 2,
+      "first_putt_ft": 8,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-2",
+      "round_id": "sample-round-17",
+      "hole": 2,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 285,
+      "layup_lie": "fairway",
+      "approach_from_yds": 85,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 19,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-3",
+      "round_id": "sample-round-17",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 25,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-4",
+      "round_id": "sample-round-17",
+      "hole": 4,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 180,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 11,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-5",
+      "round_id": "sample-round-17",
+      "hole": 5,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 125,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 23,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-6",
+      "round_id": "sample-round-17",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 48,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-7",
+      "round_id": "sample-round-17",
+      "hole": 7,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 38,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-8",
+      "round_id": "sample-round-17",
+      "hole": 8,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 255,
+      "layup_lie": "rough",
+      "approach_from_yds": 60,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 16,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-9",
+      "round_id": "sample-round-17",
+      "hole": 9,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 180,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 38,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-10",
+      "round_id": "sample-round-17",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 23,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-11",
+      "round_id": "sample-round-17",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": null,
+      "putts": 0,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-12",
+      "round_id": "sample-round-17",
+      "hole": 12,
+      "tee_result": "rough",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 300,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 12,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-13",
+      "round_id": "sample-round-17",
+      "hole": 13,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 170,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 40,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-14",
+      "round_id": "sample-round-17",
+      "hole": 14,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 140,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 24,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-15",
+      "round_id": "sample-round-17",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 29,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-16",
+      "round_id": "sample-round-17",
+      "hole": 16,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 185,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 25,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-17",
+      "round_id": "sample-round-17",
+      "hole": 17,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 300,
+      "layup_lie": "sand",
+      "approach_from_yds": 60,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 21,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-17-18",
+      "round_id": "sample-round-17",
+      "hole": 18,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 11,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-1",
+      "round_id": "sample-round-18",
+      "hole": 1,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 100,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 16,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-2",
+      "round_id": "sample-round-18",
+      "hole": 2,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 250,
+      "layup_lie": "fairway",
+      "approach_from_yds": 60,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 17,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-3",
+      "round_id": "sample-round-18",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 14,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-4",
+      "round_id": "sample-round-18",
+      "hole": 4,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 22,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-5",
+      "round_id": "sample-round-18",
+      "hole": 5,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 85,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 15,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-6",
+      "round_id": "sample-round-18",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 45,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-7",
+      "round_id": "sample-round-18",
+      "hole": 7,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 145,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 34,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-8",
+      "round_id": "sample-round-18",
+      "hole": 8,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 220,
+      "layup_lie": "fairway",
+      "approach_from_yds": 65,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 16,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-9",
+      "round_id": "sample-round-18",
+      "hole": 9,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 35,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-10",
+      "round_id": "sample-round-18",
+      "hole": 10,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 115,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 18,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-11",
+      "round_id": "sample-round-18",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 155,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 19,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-12",
+      "round_id": "sample-round-18",
+      "hole": 12,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 255,
+      "layup_lie": "sand",
+      "approach_from_yds": 95,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 18,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-13",
+      "round_id": "sample-round-18",
+      "hole": 13,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 145,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 7,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-14",
+      "round_id": "sample-round-18",
+      "hole": 14,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 90,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 22,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-15",
+      "round_id": "sample-round-18",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 22,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-16",
+      "round_id": "sample-round-18",
+      "hole": 16,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": null,
+      "putts": 0,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-17",
+      "round_id": "sample-round-18",
+      "hole": 17,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 270,
+      "layup_lie": "fairway",
+      "approach_from_yds": 50,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 16,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-18-18",
+      "round_id": "sample-round-18",
+      "hole": 18,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 150,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 33,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-10-07T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-1",
+      "round_id": "sample-round-19",
+      "hole": 1,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 130,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 30,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-2",
+      "round_id": "sample-round-19",
+      "hole": 2,
+      "tee_result": "sand",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 280,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 7,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-3",
+      "round_id": "sample-round-19",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 11,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-4",
+      "round_id": "sample-round-19",
+      "hole": 4,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 38,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-5",
+      "round_id": "sample-round-19",
+      "hole": 5,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 120,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 15,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-6",
+      "round_id": "sample-round-19",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 16,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-7",
+      "round_id": "sample-round-19",
+      "hole": 7,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 160,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 38,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-8",
+      "round_id": "sample-round-19",
+      "hole": 8,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 270,
+      "layup_lie": "fairway",
+      "approach_from_yds": 105,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 25,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-9",
+      "round_id": "sample-round-19",
+      "hole": 9,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 39,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-10",
+      "round_id": "sample-round-19",
+      "hole": 10,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 135,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 34,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-11",
+      "round_id": "sample-round-19",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 25,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-12",
+      "round_id": "sample-round-19",
+      "hole": 12,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 285,
+      "layup_lie": "rough",
+      "approach_from_yds": 75,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 19,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-13",
+      "round_id": "sample-round-19",
+      "hole": 13,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 180,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 12,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-14",
+      "round_id": "sample-round-19",
+      "hole": 14,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 140,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 28,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-15",
+      "round_id": "sample-round-19",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 8,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-16",
+      "round_id": "sample-round-19",
+      "hole": 16,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 24,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-17",
+      "round_id": "sample-round-19",
+      "hole": 17,
+      "tee_result": "fairway",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 310,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 14,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-19-18",
+      "round_id": "sample-round-19",
+      "hole": 18,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 200,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 15,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-17T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-1",
+      "round_id": "sample-round-20",
+      "hole": 1,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 145,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 27,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-2",
+      "round_id": "sample-round-20",
+      "hole": 2,
+      "tee_result": "penalty",
+      "go_for_green_on": 2,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 285,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 13,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-3",
+      "round_id": "sample-round-20",
+      "hole": 3,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 178,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 41,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-4",
+      "round_id": "sample-round-20",
+      "hole": 4,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 175,
+      "approach_result": "fringe",
+      "short_game_shots": 2,
+      "first_putt_ft": 10,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-5",
+      "round_id": "sample-round-20",
+      "hole": 5,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 125,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 23,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-6",
+      "round_id": "sample-round-20",
+      "hole": 6,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 204,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 38,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-7",
+      "round_id": "sample-round-20",
+      "hole": 7,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 170,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 39,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-8",
+      "round_id": "sample-round-20",
+      "hole": 8,
+      "tee_result": "rough",
+      "go_for_green_on": 3,
+      "layup_from_yds": 255,
+      "layup_lie": "fairway",
+      "approach_from_yds": 90,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 22,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-9",
+      "round_id": "sample-round-20",
+      "hole": 9,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 170,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 33,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-10",
+      "round_id": "sample-round-20",
+      "hole": 10,
+      "tee_result": "penalty",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 140,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 35,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-11",
+      "round_id": "sample-round-20",
+      "hole": 11,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 165,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 10,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-12",
+      "round_id": "sample-round-20",
+      "hole": 12,
+      "tee_result": "sand",
+      "go_for_green_on": 3,
+      "layup_from_yds": 295,
+      "layup_lie": "rough",
+      "approach_from_yds": 95,
+      "approach_result": "sand",
+      "short_game_shots": 1,
+      "first_putt_ft": 9,
+      "putts": 1,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-13",
+      "round_id": "sample-round-20",
+      "hole": 13,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 175,
+      "approach_result": "rough",
+      "short_game_shots": 1,
+      "first_putt_ft": 11,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-14",
+      "round_id": "sample-round-20",
+      "hole": 14,
+      "tee_result": "sand",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 125,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 28,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-15",
+      "round_id": "sample-round-20",
+      "hole": 15,
+      "tee_result": null,
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 212,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 14,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-16",
+      "round_id": "sample-round-20",
+      "hole": 16,
+      "tee_result": "rough",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 190,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 38,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-17",
+      "round_id": "sample-round-20",
+      "hole": 17,
+      "tee_result": "fairway",
+      "go_for_green_on": 3,
+      "layup_from_yds": 305,
+      "layup_lie": "fairway",
+      "approach_from_yds": 55,
+      "approach_result": "green",
+      "short_game_shots": 0,
+      "first_putt_ft": 18,
+      "putts": 3,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    },
+    {
+      "id": "sample-round-20-18",
+      "round_id": "sample-round-20",
+      "hole": 18,
+      "tee_result": "fairway",
+      "go_for_green_on": null,
+      "layup_from_yds": null,
+      "layup_lie": null,
+      "approach_from_yds": 195,
+      "approach_result": "fringe",
+      "short_game_shots": 1,
+      "first_putt_ft": 12,
+      "putts": 2,
+      "deleted_at": null,
+      "updated_at": "2026-10-28T18:00:00.000Z"
+    }
+  ]
+}
