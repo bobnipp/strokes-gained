@@ -8,7 +8,8 @@ const S = {
   screen: 'home', courses: [], rounds: [], holes: {}, cur: 0, draft: null, viewId: null,
   pad: null, sheet: null, arm: null, ec: null, et: 0, err: '',
   nr: { courseId: null, tee: null, range: '18', date: today() },
-  sync: { state: 'off', at: 0, email: null, error: '' }, email: '', sent: false, update: false
+  sync: { state: 'off', at: 0, email: null, error: '' }, email: '', sent: false, update: false,
+  prog: { range: '10', cat: 'total' }, from: null
 };
 const KEYS = ['ott', 'app', 'arg', 'putt'];
 const SHORT = { ott: 'Tee', app: 'App', arg: 'ARG', putt: 'Putt' };
@@ -42,6 +43,48 @@ function stats(r) {
   for (const h of hs) { if (!h) continue; n++; score += h.score; par += h.par; for (const k of KEYS) cats[k] += h.cats[k] || 0; }
   return { ix, hs, count: ix.length, n, score, par, cats, total: sum(KEYS, k => cats[k]) };
 }
+// ---- progress over time
+// Saved rounds, oldest first, SG scaled to 18 holes so 9-hole and partial rounds compare.
+function history() {
+  return S.rounds.filter(r => r.status === 'saved').map(r => ({ r, st: stats(r) })).filter(x => x.st.n > 0).reverse().map(({ r, st }) => {
+    const f = 18 / st.n, cats = {};
+    for (const k of KEYS) cats[k] = st.cats[k] * f;
+    return { id: r.id, date: r.played_on, course: r.course_name, cats, total: st.total * f };
+  });
+}
+const mean = a => a.length ? sum(a, x => x) / a.length : 0;
+const pv = (x, k) => k === 'total' ? x.total : x.cats[k];
+const arrow = d => (d >= 0 ? '▲ ' : '▼ ') + Math.abs(d).toFixed(1);
+// Change in avg SG: vs the window before it when there is one, else recent half vs earlier half.
+function change(win, prev, k) {
+  const m = a => mean(a.map(x => pv(x, k)));
+  if (prev.length) return { d: m(win) - m(prev), note: `vs previous ${prev.length}` };
+  if (win.length >= 4) { const h = win.length >> 1; return { d: m(win.slice(h)) - m(win.slice(0, h)), note: 'recent half vs earlier' }; }
+  return null;
+}
+// Bar per round (dark = gained, red = lost), optional axis, rolling-average line and tap-to-open.
+function chart(pts, { h = 180, axis = true, label = '' } = {}) {
+  const W = 340, X0 = axis ? 30 : 0, top = 8, bot = h - 8, vs = pts.flatMap(p => p.avg != null ? [p.v, p.avg] : [p.v]);
+  const mx = Math.max(0, ...vs), mn = Math.min(0, ...vs), raw = Math.max(1, mx - mn);
+  const step = raw <= 3 ? 1 : raw <= 8 ? 2 : raw <= 20 ? 5 : 10, hi = Math.max(axis ? step : 0.5, Math.ceil(mx / step) * step), lo = Math.min(axis ? -step : -0.5, Math.floor(mn / step) * step);
+  const y = v => top + (hi - v) / (hi - lo) * (bot - top), slot = (W - X0) / pts.length, y0 = y(0);
+  let s = `<svg class="chart" viewBox="0 0 ${W} ${h}" ${label ? `role="img" aria-label="${esc(label)}"` : 'aria-hidden="true"'}>`;
+  if (axis) for (let g = lo; g <= hi; g += step)
+    s += `<line class="${g ? 'grid' : 'zero'}" x1="${X0 - 4}" x2="${W}" y1="${y(g)}" y2="${y(g)}"/><text x="0" y="${y(g) + 3.5}">${g ? (g > 0 ? '+' : '−') + Math.abs(g) : '0'}</text>`;
+  else s += `<line class="zero" x1="0" x2="${W}" y1="${y0}" y2="${y0}"/>`;
+  pts.forEach((p, i) => {
+    const yv = y(p.v), x = X0 + i * slot;
+    s += `<rect class="${p.v >= 0 ? 'bg' : 'bl'}" x="${(x + slot * 0.18).toFixed(1)}" y="${Math.min(y0, yv).toFixed(1)}" width="${Math.max(1, slot * 0.64).toFixed(1)}" height="${Math.max(1.5, Math.abs(yv - y0)).toFixed(1)}"/>`;
+    if (p.id) s += `<rect class="hit" x="${x.toFixed(1)}" y="0" width="${slot.toFixed(1)}" height="${h}" data-a="viewRound"${V(p.id)}><title>${esc(p.title)}</title></rect>`;
+  });
+  const line = pts.filter(p => p.avg != null).map((p, i, a) => [X0 + pts.indexOf(p) * slot + slot / 2, y(p.avg)]);
+  if (line.length > 1) {
+    const [lx, ly] = line[line.length - 1];
+    s += `<path class="avg" d="${line.map((q, i) => (i ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join(' ')}"/><circle class="dot" cx="${lx.toFixed(1)}" cy="${ly.toFixed(1)}" r="4"/>`;
+  }
+  return s + '</svg>';
+}
+
 async function reload() {
   const [cs, rs, hs] = await Promise.all([db.all('courses'), db.all('rounds'), db.all('holes')]);
   S.courses = cs.filter(x => !x.deleted_at).sort((a, b) => a.name.localeCompare(b.name));
@@ -115,9 +158,23 @@ function home() {
     const st = stats(r);
     return `<button class="list-row" data-a="viewRound"${V(r.id)}><span class="col" style="gap:3px"><span class="t">${esc(r.course_name)}</span><span class="m">${dfmt(r.played_on)}${rangeTxt(r)}${st.n < st.count ? ` · ${st.n} of ${st.count} holes` : ''}</span></span><span class="sc">${st.score}</span><span class="sg${neg(st.total)}">${fmt(st.total)}</span></button>`;
   }).join('');
+  const hist = history();
+  let trend = '';
+  if (hist.length) {
+    const win = hist.slice(-10), prev = hist.slice(-20, -10), avg = mean(win.map(x => x.total)), ch = change(win, prev, 'total');
+    trend = `<div class="pad kicker" style="padding-bottom:8px;display:flex;justify-content:space-between"><span>Progress · last ${win.length} round${win.length === 1 ? '' : 's'}</span><span>per 18 holes</span></div>
+    <button class="trend rule rule-b" data-a="go"${V('progress')}>
+      <span class="trend-top"><span class="col"><span class="big${neg(avg)}" style="font-size:34px">${fmt1(avg)}</span><span class="meta">avg SG per round</span></span>
+        ${ch ? `<span class="col" style="align-items:flex-end"><span class="delta">${arrow(ch.d)}</span><span class="meta">${ch.note}</span></span>` : ''}</span>
+      ${chart(win.map(x => ({ v: x.total })), { h: 56, axis: false })}
+      <span class="trend-cats">${KEYS.map(k => { const a = mean(win.map(x => x.cats[k])), c = change(win, prev, k); return `<span class="col" style="gap:4px"><span class="kicker">${SHORT[k]}</span><span class="cv${neg(a)}">${fmt1(a)}</span><span class="m">${c ? arrow(c.d) : '—'}</span></span>`; }).join('')}</span>
+      <span class="trend-more">See progress ›</span>
+    </button>`;
+  }
   return `<div class="scroll">
     <div class="head rule-b" style="padding-top:14px"><span class="kicker">Baseline · Scratch (est.)</span><h1 class="h1 xl">Strokes gained</h1></div>
     ${top}
+    ${trend}
     <div class="pad kicker" style="padding-bottom:8px">Past rounds</div>
     <div class="rule">${rows || `<p class="body pad meta">No saved rounds yet.</p>`}</div>
     <div style="flex:1;min-height:24px"></div>
@@ -181,7 +238,7 @@ function card() {
   if (d.putts > 0) step('first_putt_ft', 'First putt', 1, 'ft');
   chip('putts', 'Putts', [0, 1, 2, 3, 4], null, d.putts === 0 ? (d.approach_result === 'green' ? 'holed the approach' : 'holed from off the green') : '');
   return `${bar(homeL() + L('openEnd', 'End round', 'red'), L('roundActive', `Round ${fmt(st.total)} thru ${st.n} ›`, neg(st.total)))}
-  <div class="head split"><div class="col"><span class="kicker">Hole ${i + 1} · Par ${h.par} · ${h.yds} yds</span><h1 class="h1">Card hole ${i + 1}</h1></div><div class="score"><span class="sv">${c.score}</span><span class="sn">${scoreName(c.score, h.par)}</span></div></div>
+  <div class="head split"><div class="col"><span class="kicker">Hole ${i + 1} · Par ${h.par} · ${h.yds} yds</span><h1 class="h1">Hole ${i + 1}</h1></div><div class="score"><span class="sv">${c.score}</span><span class="sn">${scoreName(c.score, h.par)}</span></div></div>
   <div class="rule-b">${strip(st, i, true)}</div>
   <div class="scroll">${rows.join('')}</div>
   ${cta('saveHole', `Save hole ${i + 1} · ${fmt(c.total)}`)}`;
@@ -221,7 +278,8 @@ function round() {
   } else notes.push(['No holes yet', 'Card a hole to see where strokes went.']);
   const right = isActive ? '<span class="meta" style="font-size:12px">vs Scratch (est.)</span>' : L('delRound', S.arm === 'delRound' ? 'Tap again to delete' : 'Delete round', 'red');
   const fo = isActive ? firstOpen(r) : 0;
-  return `${bar(homeL(), right)}
+  const fromP = !isActive && S.from === 'progress';
+  return `${bar(fromP ? L('go', '‹ Progress', '', 'progress') : homeL(), right)}
   <div class="scroll">
     <div class="head split"><div class="col"><span class="kicker">${esc(r.course_name)}${rangeTxt(r)} · ${st.score} (${toPar(st.score - st.par)})${st.n < st.count ? ' · thru ' + st.n : ''}</span><h1 class="h1">Where it went</h1></div><span class="big${neg(st.total)}" style="font-size:30px">${fmt(st.total)}</span></div>
     <div class="heat rule">
@@ -233,7 +291,39 @@ function round() {
     <div class="notes">${notes.map(([l, t]) => `<div class="note"><span class="kicker">${l}</span><b>${esc(t)}</b></div>`).join('')}</div>
     <div style="flex:1;min-height:18px"></div>
   </div>
-  ${isActive ? `<div class="two"><button class="sheet-row" data-a="hole"${V(fo)}>‹ Hole ${fo + 1}</button>${cta('finish', 'Finish &amp; save')}</div>` : cta('go', 'Back to home', '', 'home')}`;
+  ${isActive ? `<div class="two"><button class="sheet-row" data-a="hole"${V(fo)}>‹ Hole ${fo + 1}</button>${cta('finish', 'Finish &amp; save')}</div>` : fromP ? cta('go', 'Back to progress', '', 'progress') : cta('go', 'Back to home', '', 'home')}`;
+}
+
+function progress() {
+  const hist = history(), P = S.prog, k = P.cat, LONG = { total: 'Total SG', ...NAME };
+  const head = kick => `${bar(homeL())}<div class="head rule-b"><span class="kicker">${kick}</span><h1 class="h1 xl">Progress</h1></div>`;
+  if (!hist.length) return `${head('Strokes gained over time')}<div class="scroll"><p class="body pad meta">Save a round to start tracking progress.</p></div>`;
+  const n = P.range === 'all' ? hist.length : +P.range, win = hist.slice(-n), prev = P.range === 'all' ? [] : hist.slice(-2 * n, -n), off = hist.length - win.length;
+  const avg = mean(win.map(x => pv(x, k))), ch = change(win, prev, k), rl = `${win.length} round${win.length === 1 ? '' : 's'}`;
+  const pts = win.map((x, i) => {
+    const gi = off + i, v = pv(x, k);
+    return { v, id: x.id, title: `${dfmt(x.date)} · ${x.course} · ${fmt1(v)}`, avg: gi >= 1 ? mean(hist.slice(Math.max(0, gi - 4), gi + 1).map(z => pv(z, k))) : null };
+  });
+  const rows = ['total', ...KEYS].map(key => {
+    const a = mean(win.map(x => pv(x, key))), c = change(win, prev, key);
+    return `<button class="list-row" style="grid-template-columns:1fr 60px 64px${key === k ? ';background:var(--color-neutral-200)' : ''}" data-a="progCat"${V(key)}><span class="t">${LONG[key]}</span><span class="sg${neg(a)}">${fmt1(a)}</span><span class="m" style="text-align:right;font-size:12px;font-weight:600">${c ? arrow(c.d) : '—'}</span></button>`;
+  }).join('');
+  const cat = KEYS.map(key => [key, mean(win.map(x => x.cats[key])), change(win, prev, key)]);
+  const worst = cat.slice().sort((a, b) => a[1] - b[1])[0], best = cat.filter(c => c[2]).sort((a, b) => b[2].d - a[2].d)[0], notes = [];
+  if (worst[1] < 0) notes.push(['Biggest leak', `${NAME[worst[0]]} costs you ${fmt1(-worst[1]).replace('+', '')} strokes per round.`]);
+  if (best && best[2].d > 0.05) notes.push(['Most improved', `${NAME[best[0]]}, ${arrow(best[2].d)} per round (${best[2].note}).`]);
+  return `${head(`${rl} · ${LONG[k]}`)}
+  <div class="scroll">
+    <div class="pad col" style="gap:10px">${opts('progRange', P.range, ['10', '20', 'all'], ['Last 10', 'Last 20', 'All'])}${opts('progCat', k, ['total', ...KEYS], ['Total', 'Tee', 'App', 'ARG', 'Putt'])}</div>
+    <div class="grid3" style="grid-template-columns:1fr 1fr"><div class="stat"><span class="kicker">Avg / round</span><span class="big${neg(avg)}">${fmt1(avg)}</span></div>
+      <div class="stat"><span class="kicker">Trend</span><span class="big">${ch ? arrow(ch.d) : '—'}</span><span class="meta" style="font-size:11px">${ch ? ch.note : 'needs 4+ rounds'}</span></div></div>
+    <div class="pad" style="padding-bottom:0">${chart(pts, { label: `${LONG[k]} per round, ${rl}, average ${fmt1(avg)}` })}</div>
+    <div class="legend" style="padding-top:8px"><span><i style="background:var(--color-text)"></i>Gained</span><span><i style="background:var(--color-accent)"></i>Lost</span><span><i style="height:3px;vertical-align:3px;background:var(--color-text)"></i>5-round avg</span></div>
+    <div class="pad kicker" style="padding-bottom:8px;padding-top:22px;display:flex;justify-content:space-between"><span>By category</span><span>avg · change</span></div>
+    <div class="rule">${rows}</div>
+    ${notes.length ? `<div class="notes">${notes.map(([l, t]) => `<div class="note"><span class="kicker">${l}</span><b>${esc(t)}</b></div>`).join('')}</div>` : ''}
+    <p class="body pad meta" style="font-size:12px">Each round is scaled to 18 holes. Tap a bar to open that round.</p>
+  </div>`;
 }
 
 function syncScreen() {
@@ -268,7 +358,7 @@ function overlay() {
   return '';
 }
 
-const SCREENS = { home, newRound, courses, courseEdit, card, hole, round, sync: syncScreen };
+const SCREENS = { home, newRound, courses, courseEdit, card, hole, round, progress, sync: syncScreen };
 function render() {
   if (['card', 'hole'].includes(S.screen) && !active()) S.screen = 'home';
   const key = S.screen + ':' + S.cur + ':' + S.viewId, sc = $.querySelector('.scroll'), top = sc && key === lastKey ? sc.scrollTop : 0;
@@ -284,12 +374,14 @@ const A = {
   reload: () => { location.reload(); return false; },
   go: v => { if (v === 'newRound') S.nr = { ...S.nr, courseId: null, tee: null, date: today() }; S.screen = v; S.err = ''; S.arm = null; if (v === 'home') kick(true); },
   resume: () => openHole(firstOpen(active())),
-  roundActive: () => { S.viewId = null; S.screen = 'round'; },
-  viewRound: id => { S.viewId = id; S.screen = 'round'; S.arm = null; },
+  roundActive: () => { S.viewId = null; S.from = null; S.screen = 'round'; },
+  viewRound: id => { S.from = S.screen === 'progress' ? 'progress' : null; S.viewId = id; S.screen = 'round'; S.arm = null; },
+  progRange: v => { S.prog.range = v; },
+  progCat: v => { S.prog.cat = v; },
   hole: i => openHole(i),
   openEnd: () => { S.sheet = 'end'; S.pad = null; S.arm = null; },
   closeSheet: () => { S.sheet = null; S.arm = null; },
-  endSave: async () => { const a = active(); await db.put('rounds', { ...a, status: 'saved' }); await reload(); S.sheet = null; S.viewId = a.id; S.screen = 'round'; },
+  endSave: async () => { const a = active(); await db.put('rounds', { ...a, status: 'saved' }); await reload(); S.sheet = null; S.viewId = a.id; S.from = null; S.screen = 'round'; },
   finish: () => A.endSave(),
   endDiscard: async () => { if (!arm('discard')) return; await discardRound(active()); S.sheet = null; S.screen = 'home'; },
   delRound: async () => { if (!arm('delRound')) return; await discardRound(S.rounds.find(r => r.id === S.viewId)); S.screen = 'home'; },

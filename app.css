@@ -114,3 +114,19 @@ button:focus-visible,input:focus-visible,label:focus-within{outline:2px solid va
 .kv b{font:600 14px var(--font-body);overflow-wrap:anywhere}
 code{font-family:ui-monospace,Menlo,monospace;font-size:.92em}
 .sel{appearance:none;-webkit-appearance:none;padding-right:36px;background-image:linear-gradient(45deg,transparent 50%,var(--color-text) 50%),linear-gradient(135deg,var(--color-text) 50%,transparent 50%);background-position:calc(100% - 20px) 19px,calc(100% - 14px) 19px;background-size:6px 6px;background-repeat:no-repeat;cursor:pointer}
+/* progress over time */
+.trend{width:100%;border-left:0;border-right:0;background:transparent;padding:14px 18px 14px;display:flex;flex-direction:column;gap:10px;text-align:left}
+.trend:hover{background:var(--color-accent-100)}.trend:active{background:var(--color-neutral-200)}
+.trend-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.delta{font:800 15px/1 var(--font-heading);font-variant-numeric:tabular-nums}
+.trend-cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--color-divider);padding-top:10px}
+.cv{font:800 15px/1 var(--font-heading);font-variant-numeric:tabular-nums}
+.trend .m{font:600 11px var(--font-body);color:var(--color-neutral-700);font-variant-numeric:tabular-nums}
+.trend-more{font:600 12px var(--font-body);text-decoration:underline;text-underline-offset:3px}
+.chart{display:block;width:100%;height:auto}
+.chart .bg{fill:var(--color-text)}.chart .bl{fill:var(--color-accent)}
+.chart .grid{stroke:var(--color-divider);stroke-width:.75}.chart .zero{stroke:var(--color-divider);stroke-width:1.5}
+.chart text{font:400 10px var(--font-body);fill:var(--color-neutral-700)}
+.chart .avg{fill:none;stroke:var(--color-text);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.chart .dot{fill:var(--color-bg);stroke:var(--color-text);stroke-width:2.5}
+.chart .hit{fill:transparent;cursor:pointer}.chart .hit:hover{fill:color-mix(in srgb,var(--color-text) 8%,transparent)}

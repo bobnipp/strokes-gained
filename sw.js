@@ -1,5 +1,5 @@
 // Bump VERSION on every deploy so phones pick up the new files.
-const VERSION = 'v1.01';
+const VERSION = 'v3';
 const SHELL = `shell-${VERSION}`, RUNTIME = 'runtime-v1';
 const FILES = [
   './', 'index.html', 'app.css', 'ds.css', 'config.js', 'manifest.webmanifest',
@@ -24,6 +24,7 @@ self.addEventListener('fetch', e => {
   if (url.hostname.endsWith('supabase.co')) return; // live data, never cached
 
   if (url.origin === location.origin) {
+    // config.js: network first, so key/URL changes apply without a VERSION bump.
     if (url.pathname.endsWith('/config.js')) {
       e.respondWith(fetch(req).then(r => { if (r.ok) caches.open(SHELL).then(c => c.put(req, r.clone())); return r; })
         .catch(() => caches.match(req, { ignoreSearch: true })));
