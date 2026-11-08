@@ -87,7 +87,7 @@ function chart(pts, { h = 180, axis = true, label = '' } = {}) {
 
 async function reload() {
   const [cs, rs, hs] = await Promise.all([db.all('courses'), db.all('rounds'), db.all('holes')]);
-  S.courses = cs.filter(x => !x.deleted_at).sort((a, b) => a.name.localeCompare(b.name));
+  S.courses = cs.filter(x => !x.deleted_at).sort((a, b) => (b.home ? 1 : 0) - (a.home ? 1 : 0) || a.name.localeCompare(b.name));
   S.rounds = rs.filter(x => !x.deleted_at).sort((a, b) => b.played_on.localeCompare(a.played_on) || b.updated_at.localeCompare(a.updated_at));
   S.holes = {};
   for (const h of hs) if (!h.deleted_at) (S.holes[h.round_id] ??= {})[h.hole] = h;
@@ -188,14 +188,20 @@ function home() {
   </div>`;
 }
 
+// New round's course and tees: your pick, else the home course, else the last course played, else the first.
+function nrPick() {
+  const last = S.rounds.find(r => S.courses.some(x => x.id === r.course_id));
+  const c = S.courses.find(x => x.id === S.nr.courseId) || S.courses.find(x => x.home) || (last && S.courses.find(x => x.id === last.course_id)) || S.courses[0];
+  const lastTee = S.rounds.find(r => r.course_id === c.id)?.tee_name, t = c.tees.find(x => x.name === S.nr.tee) || c.tees.find(x => x.name === lastTee) || c.tees[0];
+  return { c, t, last };
+}
 function newRound() {
   if (!S.courses.length) return `${bar(homeL())}<div class="head"><span class="kicker">New round</span><h1 class="h1">Add a course first</h1></div>
     <div class="scroll"><p class="body pad">Rounds copy par and yardage from a saved course.</p></div>${cta('newCourse', 'Add course')}`;
-  const n = S.nr, last = S.rounds.find(r => S.courses.some(x => x.id === r.course_id));
-  const c = S.courses.find(x => x.id === n.courseId) || (last && S.courses.find(x => x.id === last.course_id)) || S.courses[0], lastTee = S.rounds.find(r => r.course_id === c.id)?.tee_name, t = c.tees.find(x => x.name === n.tee) || c.tees.find(x => x.name === lastTee) || c.tees[0];
+  const n = S.nr, { c, t, last } = nrPick();
   return `${bar(homeL())}<div class="head"><span class="kicker">New round</span><h1 class="h1">${esc(c.name)}</h1></div>
   <div class="scroll rule">
-    ${S.courses.length > 1 ? q('Course', last && last.course_id === c.id ? 'last played' : '', `<select class="txt sel" data-in="nrCourse">${S.courses.map(x => `<option value="${esc(x.id)}"${x.id === c.id ? ' selected' : ''}>${esc(x.name)}</option>`).join('')}</select>`) : ''}
+    ${S.courses.length > 1 ? q('Course', c.home ? 'home course' : last && last.course_id === c.id ? 'last played' : '', `<select class="txt sel" data-in="nrCourse">${S.courses.map(x => `<option value="${esc(x.id)}"${x.id === c.id ? ' selected' : ''}>${x.home ? '★ ' : ''}${esc(x.name)}</option>`).join('')}</select>`) : ''}
     ${q('Tees', `Par ${sum(t.holes, h => h.par)} · ${sum(t.holes, h => h.yds).toLocaleString()} yds`, `<div class="opts">${c.tees.map(x => `<button class="${x.name === t.name ? 'on' : ''}" data-a="nrTee"${V(x.name)}>${esc(x.name)}</button>`).join('')}</div>`)}
     ${q('Holes', '', opts('nrRange', n.range, ['18', 'front', 'back'], ['18 holes', 'Front 9', 'Back 9']))}
     ${q('Date', '', `<input class="txt" type="date" data-in="nrDate" value="${esc(n.date)}">`)}
@@ -203,9 +209,14 @@ function newRound() {
 }
 
 function courses() {
-  const rows = S.courses.map(c => `<button class="list-row two" data-a="editCourse"${V(c.id)}><span class="col" style="gap:3px"><span class="t">${esc(c.name)}</span><span class="m">${c.tees.map(t => esc(t.name)).join(' · ')}</span></span><span class="m">Par ${sum(c.tees[0].holes, h => h.par)}</span></button>`).join('');
+  const row = c => `<div class="crow${c.home ? ' home' : ''}"><button class="list-row two" data-a="editCourse"${V(c.id)}><span class="col" style="gap:3px"><span class="t">${esc(c.name)}</span><span class="m">${c.tees.map(t => esc(t.name)).join(' · ')}</span></span><span class="m">Par ${sum(c.tees[0].holes, h => h.par)}</span></button><button class="star" data-a="homeCourse"${V(c.id)} aria-pressed="${!!c.home}" aria-label="${c.home ? 'Remove ' + esc(c.name) + ' as home course' : 'Make ' + esc(c.name) + ' your home course'}">${c.home ? '★' : '☆'}</button></div>`;
+  const home = S.courses.find(c => c.home), rest = S.courses.filter(c => !c.home);
+  const body = !S.courses.length ? `<p class="body pad meta">No courses yet.</p><div class="pad" style="padding-top:0">${btn2('sampleCourse', 'Add a sample course for testing')}</div>`
+    : (home ? `<div class="pad kicker" style="padding-bottom:8px;color:var(--color-accent-700)">Home course</div><div class="rule">${row(home)}</div><div class="pad kicker" style="padding-bottom:8px;padding-top:20px">All courses · A–Z</div>` : '')
+      + `<div class="rule">${rest.map(row).join('')}</div>`
+      + (home ? '' : `<p class="body pad meta" style="font-size:12px">Tap ☆ to set your home course. It's listed first when you start a round.</p>`);
   return `${bar(homeL())}<div class="head"><span class="kicker">${S.courses.length} saved</span><h1 class="h1">Courses</h1></div>
-  <div class="scroll rule">${rows || `<p class="body pad meta">No courses yet.</p><div class="pad" style="padding-top:0">${btn2('sampleCourse', 'Add a sample course for testing')}</div>`}</div>
+  <div class="scroll${home ? '' : ' rule'}">${body}</div>
   ${cta('newCourse', 'Add course')}`;
 }
 
@@ -406,12 +417,19 @@ const A = {
   nrRange: r => { S.nr.range = r; },
   startRound: async () => {
     if (active()) return;
-    const last = S.rounds.find(r => S.courses.some(x => x.id === r.course_id)), c = S.courses.find(x => x.id === S.nr.courseId) || (last && S.courses.find(x => x.id === last.course_id)) || S.courses[0];
-    const lastTee = S.rounds.find(r => r.course_id === c.id)?.tee_name, t = c.tees.find(x => x.name === S.nr.tee) || c.tees.find(x => x.name === lastTee) || c.tees[0];
+    const { c, t } = nrPick();
     const r = await db.put('rounds', { id: db.uuid(), course_id: c.id, course_name: c.name, tee_name: t.name, holes_snapshot: t.holes.map(h => ({ par: h.par, yds: h.yds })), played_on: S.nr.date || today(), range: S.nr.range, status: 'active', baseline_id: B.id, deleted_at: null });
     await reload(); openHole(RANGE[r.range][0]);
   },
   newCourse: () => { S.ec = { name: '', tees: [{ name: '', holes: Array.from({ length: 18 }, () => ({ par: 4, yds: '' })) }] }; S.et = 0; S.err = ''; S.arm = null; S.screen = 'courseEdit'; },
+  // One home course: starring a course clears the flag elsewhere; starring the home course clears it.
+  homeCourse: async id => {
+    for (const c of S.courses) {
+      const want = c.id === id ? !c.home : false;
+      if (!!c.home !== want) { const { dirty, ...rest } = c; await db.put('courses', { ...rest, home: want }); }
+    }
+    await reload();
+  },
   editCourse: id => { S.ec = structuredClone(S.courses.find(c => c.id === id)); S.et = 0; S.err = ''; S.arm = null; S.screen = 'courseEdit'; },
   tee: j => { S.et = j; },
   addTee: () => { S.ec.tees.push({ name: '', holes: S.ec.tees[S.et].holes.map(h => ({ ...h })) }); S.et = S.ec.tees.length - 1; },
