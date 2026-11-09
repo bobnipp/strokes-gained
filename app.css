@@ -49,7 +49,7 @@ button:focus-visible,input:focus-visible,label:focus-within{outline:2px solid va
 .score .sn{font:600 13px var(--font-body);color:var(--color-neutral-700)}
 .strip{display:grid;gap:2px;padding:0 18px 10px;flex:none}
 .strip>*{height:22px;padding:0;border:0;font:600 9px/1 var(--font-body);background:var(--color-neutral-200);color:var(--color-neutral-700)}
-.strip .g{background:var(--color-text);color:var(--color-bg)}
+.strip .g{background:var(--gain);color:var(--color-bg)}
 .strip .l{background:var(--color-accent);color:var(--color-bg)}
 .strip .cur{box-shadow:0 0 0 2px var(--color-bg),0 0 0 4px var(--color-text)}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--color-divider);border-bottom:2px solid var(--color-divider)}
@@ -124,7 +124,7 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:.92em}
 .trend .m{font:600 11px var(--font-body);color:var(--color-neutral-700);font-variant-numeric:tabular-nums}
 .trend-more{font:600 12px var(--font-body);text-decoration:underline;text-underline-offset:3px}
 .chart{display:block;width:100%;height:auto}
-.chart .bg{fill:var(--color-text)}.chart .bl{fill:var(--color-accent)}
+.chart .bg{fill:var(--gain)}.chart .bl{fill:var(--color-accent)}
 .chart .grid{stroke:var(--color-divider);stroke-width:.75}.chart .zero{stroke:var(--color-divider);stroke-width:1.5}
 .chart text{font:400 10px var(--font-body);fill:var(--color-neutral-700)}
 .chart .avg{fill:none;stroke:var(--color-text);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
@@ -174,3 +174,12 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:.92em}
 .heat button.hs.moved{box-shadow:inset 0 -3px 0 var(--color-accent)}
 .heat button.hs.none b{color:var(--color-text);font-weight:800}
 .menu-row .m.neg{color:var(--color-accent-700)}
+/* color theme: --gain is the 'strokes gained' color; lost stays --color-accent */
+:root{--gain:var(--color-text)}
+:root[data-theme="green"]{--gain:#1f8a4c}
+:root[data-theme="green"] .pos{color:#17703d}
+:root[data-theme="green"] .tile.won{background:#1f8a4c;color:var(--color-bg)}
+:root[data-theme="green"] .tile.won .kicker{color:var(--color-bg)}
+.opts .sw{display:inline-block;width:10px;height:10px;margin-right:4px;flex:none}
+.opts .sw+.sw{margin-right:8px}
+.opts>button.on .sw{box-shadow:0 0 0 1px var(--color-bg)}

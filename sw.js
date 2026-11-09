@@ -1,5 +1,5 @@
 // Bump VERSION on every deploy so phones pick up the new files.
-const VERSION = 'v9';
+const VERSION = 'v10';
 const SHELL = `shell-${VERSION}`, RUNTIME = 'runtime-v1';
 const FILES = [
   './', 'index.html', 'app.css', 'ds.css', 'config.js', 'manifest.webmanifest',

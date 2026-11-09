@@ -8,7 +8,7 @@ const S = {
   screen: 'home', courses: [], rounds: [], holes: {}, cur: 0, draft: null, viewId: null,
   pad: null, sheet: null, arm: null, ec: null, et: 0, err: '',
   nr: { courseId: null, tee: null, range: '18', date: today() },
-  sync: { state: 'off', at: 0, email: null, error: '' }, email: '', sent: false, update: false,
+  sync: { state: 'off', at: 0, email: null, error: '' }, email: '', sent: false, update: false, theme: 'black',
   prog: { range: '10', cat: 'total' }, from: null
 };
 const KEYS = ['ott', 'app', 'arg', 'putt'];
@@ -20,7 +20,7 @@ const CLAMP = { approach_from_yds: [10, 650], layup_from_yds: [30, 650], first_p
 function today() { const d = new Date(); return new Date(d.getTime() - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); }
 const fmt = v => Math.abs(v) < 0.005 ? '0.00' : (v > 0 ? '+' : '−') + Math.abs(v).toFixed(2);
 const fmt1 = v => Math.abs(v) < 0.05 ? '0.0' : (v > 0 ? '+' : '−') + Math.abs(v).toFixed(1);
-const neg = v => v < -0.005 ? ' neg' : '';
+const neg = v => v < -0.005 ? ' neg' : v > 0.005 ? ' pos' : '';
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const V = x => ` data-v='${esc(JSON.stringify(x))}'`;
 const dfmt = s => new Date(s + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
@@ -29,7 +29,7 @@ const scoreName = (s, p) => s === 1 ? 'Ace' : ({ '-3': 'Albatross', '-2': 'Eagle
 const r5 = v => Math.round(v / 5) * 5;
 const sum = (a, f) => a.reduce((s, x) => s + f(x), 0);
 const ago = t => { const m = Math.round((Date.now() - t) / 6e4); return m < 1 ? 'just now' : m < 60 ? m + ' min ago' : Math.round(m / 60) + ' h ago'; };
-const heat = v => v == null ? 'var(--color-neutral-200)' : `color-mix(in srgb, var(${v >= 0 ? '--color-text' : '--color-accent'}) ${Math.round(Math.min(1, Math.abs(v) / 0.6) * 80 + 15)}%, transparent)`;
+const heat = v => v == null ? 'var(--color-neutral-200)' : `color-mix(in srgb, var(${v >= 0 ? '--gain' : '--color-accent'}) ${Math.round(Math.min(1, Math.abs(v) / 0.6) * 80 + 15)}%, transparent)`;
 
 // ---- data helpers
 const idxs = r => { const [a, n] = RANGE[r.range] || RANGE['18']; return Array.from({ length: n }, (_, j) => a + j); };
@@ -307,7 +307,7 @@ function hole() {
   return `${bar(homeL() + L('openEnd', 'End round', 'red'), L('editHole', 'Edit card', 'u'))}
   <div class="scroll">
     <div class="head"><span class="kicker">Hole ${i + 1} · Par ${c.par} · ${c.yds} yds</span><h1 class="h1">${scoreName(c.score, c.par)}, ${fmt(c.total)} ${c.total >= -0.005 ? 'gained' : 'lost'}</h1></div>
-    <div class="tiles">${KEYS.map(k => { const x = cats[k]; return `<div class="tile${x === null ? ' na' : x < -0.005 ? ' lost' : ''}"><span class="kicker">${NAME[k]}</span><div class="col"><span class="v">${x === null ? '—' : fmt(x)}</span><span class="s">${esc(subs[k])}</span></div></div>`; }).join('')}</div>
+    <div class="tiles">${KEYS.map(k => { const x = cats[k]; return `<div class="tile${x === null ? ' na' : x < -0.005 ? ' lost' : x > 0.005 ? ' won' : ''}"><span class="kicker">${NAME[k]}</span><div class="col"><span class="v">${x === null ? '—' : fmt(x)}</span><span class="s">${esc(subs[k])}</span></div></div>`; }).join('')}</div>
     <div class="pad kicker" style="padding-bottom:8px;display:flex;justify-content:space-between"><span>Round so far · thru ${st.n}</span><span class="${neg(st.total)}">${fmt(st.total)}</span></div>
     ${strip(st, i, false)}
   </div>
@@ -350,7 +350,7 @@ function round() {
       ${KEYS.map(k => `<div class="r" style="grid-template-columns:${cols}"><span class="lab">${SHORT[k]}</span>${st.hs.map(h => `<div class="c" style="background:${heat(h ? h.cats[k] : null)}"></div>`).join('')}<span class="tot${neg(st.cats[k])}">${fmt1(st.cats[k])}</span></div>`).join('')}
       <div class="r sum" style="grid-template-columns:${cols}"><span class="lab">Hole</span>${st.hs.map(h => `<div class="c" style="background:${heat(h ? h.total : null)}"></div>`).join('')}<span class="tot${neg(st.total)}">${fmt1(st.total)}</span></div>
     </div>
-    <div class="legend"><span><i style="background:var(--color-text)"></i>Gained</span><span><i style="background:var(--color-accent)"></i>Lost</span><span>Darker = more</span><span style="margin-left:auto">${dfmt(r.played_on)}</span></div>
+    <div class="legend"><span><i style="background:var(--gain)"></i>Gained</span><span><i style="background:var(--color-accent)"></i>Lost</span><span>Darker = more</span><span style="margin-left:auto">${dfmt(r.played_on)}</span></div>
     ${changes.length ? `<div class="notes"><div class="note"><span class="kicker">Changed</span><b>${changes.join(' · ')}</b></div></div>` : ''}
     <div class="notes">${notes.map(([l, t]) => `<div class="note"><span class="kicker">${l}</span><b>${esc(t)}</b></div>`).join('')}</div>
     <div style="flex:1;min-height:18px"></div>
@@ -382,7 +382,7 @@ function progress() {
     <div class="grid3" style="grid-template-columns:1fr 1fr"><div class="stat"><span class="kicker">Avg / round</span><span class="big${neg(avg)}">${fmt1(avg)}</span></div>
       <div class="stat"><span class="kicker">Trend</span><span class="big">${ch ? arrow(ch.d) : '—'}</span><span class="meta" style="font-size:11px">${ch ? ch.note : 'needs 4+ rounds'}</span></div></div>
     <div class="pad" style="padding-bottom:0">${chart(pts, { label: `${LONG[k]} per round, ${rl}, average ${fmt1(avg)}` })}</div>
-    <div class="legend" style="padding-top:8px"><span><i style="background:var(--color-text)"></i>Gained</span><span><i style="background:var(--color-accent)"></i>Lost</span><span><i style="height:3px;vertical-align:3px;background:var(--color-text)"></i>5-round avg</span></div>
+    <div class="legend" style="padding-top:8px"><span><i style="background:var(--gain)"></i>Gained</span><span><i style="background:var(--color-accent)"></i>Lost</span><span><i style="height:3px;vertical-align:3px;background:var(--color-text)"></i>5-round avg</span></div>
     <div class="pad kicker" style="padding-bottom:8px;padding-top:22px;display:flex;justify-content:space-between"><span>By category</span><span>avg · change</span></div>
     <div class="rule">${rows}</div>
     ${notes.length ? `<div class="notes">${notes.map(([l, t]) => `<div class="note"><span class="kicker">${l}</span><b>${esc(t)}</b></div>`).join('')}</div>` : ''}
@@ -401,6 +401,8 @@ function settings() {
       `<button class="menu-row" data-a="exportData"><span>Export backup</span><span class="m">JSON file</span></button>`,
       `<label class="menu-row"><span>Import backup</span><span class="m">Adds newer records</span><input type="file" accept="application/json,.json" data-in="import" hidden></label>`])}
     <p class="body pad meta" style="font-size:12px;padding-top:10px">${sync.enabled() ? 'Sync keeps your rounds on the server. A backup file is an extra copy you control.' : 'Until sync is set up, rounds live only on this phone. Export a backup now and then.'}</p>
+    ${sec('Display', [
+      `<div class="q" style="border-bottom:0"><div class="lbl"><span class="t" style="font:600 13px var(--font-body)">Color theme</span><span class="hint">gained · lost</span></div>${opts('setTheme', S.theme, ['black', 'green'], ['<i class="sw" style="background:#201e1d"></i><i class="sw" style="background:#ec3013"></i>Red / Black', '<i class="sw" style="background:#1f8a4c"></i><i class="sw" style="background:#ec3013"></i>Red / Green'])}</div>`])}
     ${sec('About', [
       `<div class="menu-row" style="cursor:default"><span>Baseline</span><span class="m">Scratch (est.) · ${esc(B.id)}</span></div>`,
       `<div class="menu-row" style="cursor:default"><span>Saved on this phone</span><span class="m">${plural(S.courses.length, 'course')} · ${plural(S.rounds.filter(r => r.status === 'saved').length, 'round')}</span></div>`])}
@@ -475,6 +477,7 @@ const A = {
   roundActive: () => { S.viewId = null; S.from = null; S.screen = 'round'; },
   viewRound: id => { S.from = S.screen === 'progress' ? 'progress' : null; S.viewId = id; S.screen = 'round'; S.arm = null; S.editing = false; S.orig = null; },
   progRange: v => { S.prog.range = v; },
+  setTheme: async t => { applyTheme(t); await db.setMeta('theme', t); },
   progCat: v => { S.prog.cat = v; },
   hole: i => openHole(i),
   openEnd: () => { S.sheet = 'end'; S.pad = null; S.arm = null; },
@@ -625,8 +628,12 @@ if ('serviceWorker' in navigator && location.protocol !== 'file:') {
 }
 navigator.storage?.persist?.();
 
+// ---- color theme (per device, not synced): 'black' = gained in black, 'green' = gained in green; lost is red in both.
+function applyTheme(t) { S.theme = t === 'green' ? 'green' : 'black'; document.documentElement.dataset.theme = S.theme; }
+
 // ---- boot
 (async () => {
+  try { applyTheme(await db.getMeta('theme')); } catch { applyTheme('black'); }
   B = await loadBaseline(new URL('../baseline/broadie-2011-scratch-v1.json', import.meta.url));
   await reload();
   render();
