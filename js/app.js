@@ -317,7 +317,7 @@ function hole() {
 function round() {
   const r = S.viewId ? S.rounds.find(x => x.id === S.viewId) : active();
   if (!r) { S.screen = 'home'; return home(); }
-  const st = stats(r), isActive = r.status === 'active', cols = `40px repeat(${st.count},1fr) 44px`, notes = [];
+  const st = stats(r), isActive = r.status === 'active', cols = `38px repeat(${st.count},minmax(0,1fr)) 38px`, notes = [];
   if (st.n) {
     const played = st.hs.filter(Boolean), sorted = KEYS.slice().sort((x, y) => st.cats[x] - st.cats[y]), worst = sorted[0], best = sorted[3];
     if (st.cats[worst] < 0) notes.push(['Biggest leak', `${NAME[worst]} lost ${fmt(st.cats[worst])}, losing strokes on ${played.filter(h => h.cats[worst] !== null && h.cats[worst] < 0).length} of ${played.filter(h => h.cats[worst] !== null).length} holes.`]);
@@ -330,10 +330,11 @@ function round() {
   const fo = isActive ? firstOpen(r) : 0;
   const fromP = !isActive && S.from === 'progress';
   const cell = (h, j) => {
-    const i = st.ix[j], d = h ? h.score - h.par : 0, cls = 'hs' + (h ? (d <= -1 ? ' under' : d === 1 ? ' bogey' : d >= 2 ? ' dbl' : '') : ' none');
-    if (!ed) return h ? `<span class="${cls}" title="${scoreName(h.score, h.par)}">${h.score}</span>` : `<span class="${cls}">·</span>`;
+    // Scorecard marks: eagle or better = double circle, birdie = circle, bogey = square, double bogey or worse = double square.
+    const i = st.ix[j], d = h ? h.score - h.par : 0, cls = 'hs' + (h ? (d <= -2 ? ' mk-eagle' : d === -1 ? ' mk-birdie' : d === 1 ? ' mk-bogey' : d >= 2 ? ' mk-dbl' : '') : ' none');
+    if (!ed) return h ? `<span class="${cls}" title="${scoreName(h.score, h.par)}"><b>${h.score}</b></span>` : `<span class="${cls}"><b>·</b></span>`;
     const moved = S.orig && !same(fields(S.orig[i + 1]), fields(entry(r, i)));
-    return `<button class="${cls} tap${moved ? ' moved' : ''}" data-a="srHole"${V(i)} aria-label="${h ? 'Edit' : 'Card'} hole ${i + 1}">${h ? h.score : '+'}</button>`;
+    return `<button class="${cls} tap${moved ? ' moved' : ''}" data-a="srHole"${V(i)} aria-label="${h ? `Edit hole ${i + 1}, ${h.score}, ${scoreName(h.score, h.par)}` : `Card hole ${i + 1}`}"><b>${h ? h.score : '+'}</b></button>`;
   };
   const changes = ed && S.orig ? st.ix.filter(i => !same(fields(S.orig[i + 1]), fields(entry(r, i)))).map(i => {
     const h = r.holes_snapshot[i], o = S.orig[i + 1], now = entry(r, i), a = o ? holeSG(B, h, o) : null, b = now ? holeSG(B, h, now) : null;
