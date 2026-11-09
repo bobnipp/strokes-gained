@@ -172,7 +172,8 @@ function home() {
     </button>`;
   }
   return `<div class="scroll">
-    <div class="head rule-b" style="padding-top:14px"><span class="kicker">Baseline · Scratch (est.)</span><h1 class="h1 xl">Strokes gained</h1></div>
+    <div class="head rule-b" style="padding-top:14px;position:relative"><span class="kicker">Baseline · Scratch (est.)</span><h1 class="h1 xl">Strokes gained</h1>
+      <button class="syncdot ${['ok', 'syncing'].includes(S.sync.state) ? 'ok' : 'bad'}${S.sync.state === 'syncing' ? ' busy' : ''}" data-a="go"${V('sync')} aria-label="Sync: ${esc(syncTxt())}" title="${esc(syncTxt())}"><i></i></button></div>
     ${top}
     ${trend}
     <div class="pad kicker" style="padding-bottom:8px">Past rounds</div>
@@ -180,9 +181,7 @@ function home() {
     <div style="flex:1;min-height:24px"></div>
     <div class="menu">
       ${S.update ? '<button class="menu-row" data-a="reload"><span>Update ready</span><span class="m neg">Tap to reload</span></button>' : ''}
-      <button class="menu-row" data-a="go"${V('courses')}><span>Courses</span><span class="m">${S.courses.length} saved</span></button>
-      <button class="menu-row" data-a="go"${V('sync')}><span>Sync</span><span class="m${S.sync.state === 'error' ? ' neg' : ''}">${syncTxt()}</span></button>
-      <button class="menu-row" data-a="exportData"><span>Export backup (JSON)</span></button>
+      <button class="menu-row" data-a="go"${V('courses')}><span>Courses</span><span class="m">${S.courses.length} saved</span></button>      <button class="menu-row" data-a="exportData"><span>Export backup (JSON)</span></button>
       <label class="menu-row"><span>Import backup</span><input type="file" accept="application/json,.json" data-in="import" hidden></label>
     </div>
   </div>`;
@@ -236,8 +235,9 @@ function courseEdit() {
   ${S.err ? `<p class="err">${esc(S.err)}</p>` : ''}${cta('saveCourse', 'Save course')}`;
 }
 
-function card() {
-  const a = active(), i = S.cur, h = a.holes_snapshot[i], d = S.draft, c = holeSG(B, h, d), st = stats(a), layup = h.par === 5 && d.go_for_green_on === 3, rows = [];
+// The hole card's questions, shared by in-round carding and editing a saved round.
+function holeForm(h, d) {
+  const layup = h.par === 5 && d.go_for_green_on === 3, rows = [];
   const chip = (k, label, vals, labels, hint = '') => rows.push(q(label, hint, `<div class="opts">${vals.map((v, j) => `<button class="${d[k] === v ? 'on' : ''}" data-a="set"${V([k, v])}>${labels ? labels[j] : v}</button>`).join('')}</div>`));
   const step = (k, label, s, unit, hint = '') => rows.push(q(label, hint, `<div class="opts"><button data-a="adj"${V([k, -s])}>−${s}</button><button class="on" data-a="pad"${V([k, label, unit])}>${d[k]} ${unit}</button><button data-a="adj"${V([k, s])}>+${s}</button><button data-a="pad"${V([k, label, unit])}>Edit</button></div>`));
   if (h.par !== 3) chip('tee_result', 'Tee shot', ['fairway', 'rough', 'sand', 'penalty'], ['Fwy', 'Rough', 'Sand', 'Pen'], d.tee_result === 'penalty' ? 'drop in rough, +1 stroke' : '');
@@ -248,11 +248,49 @@ function card() {
   if (d.approach_result !== 'green') chip('short_game_shots', 'Short-game shots', [1, 2, 3], null, 'chips, pitches, bunker');
   if (d.putts > 0) step('first_putt_ft', 'First putt', 1, 'ft');
   chip('putts', 'Putts', [0, 1, 2, 3, 4], null, d.putts === 0 ? (d.approach_result === 'green' ? 'holed the approach' : 'holed from off the green') : '');
+  return rows.join('');
+}
+
+function card() {
+  const a = active(), i = S.cur, h = a.holes_snapshot[i], d = S.draft, c = holeSG(B, h, d), st = stats(a);
   return `${bar(homeL() + L('openEnd', 'End round', 'red'), L('roundActive', `Round ${fmt(st.total)} thru ${st.n} ›`, neg(st.total)))}
   <div class="head split"><div class="col"><span class="kicker">Hole ${i + 1} · Par ${h.par} · ${h.yds} yds</span><h1 class="h1">Hole ${i + 1}</h1></div><div class="score"><span class="sv">${c.score}</span><span class="sn">${scoreName(c.score, h.par)}</span></div></div>
   <div class="rule-b">${strip(st, i, true)}</div>
-  <div class="scroll">${rows.join('')}</div>
+  <div class="scroll">${holeForm(h, d)}</div>
   ${cta('saveHole', `Save hole ${i + 1} · ${fmt(c.total)}`)}`;
+}
+
+// ---- editing a saved round (it stays saved; each hole writes on Save)
+const viewed = () => S.rounds.find(x => x.id === S.viewId);
+const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+const fields = e => e ? Object.fromEntries(Object.keys(defEntry({ par: 4, yds: 400 })).map(k => [k, e[k] ?? null])) : null;
+function editCard() {
+  const r = viewed(); if (!r) { S.screen = 'home'; return home(); }
+  const i = S.cur, h = r.holes_snapshot[i], d = S.draft, c = holeSG(B, h, d), e = entry(r, i), was = e ? holeSG(B, h, e) : null;
+  const changed = !e || !same(fields(normalize(h, d)), fields(e)), ix = idxs(r), k = ix.indexOf(i);
+  const nav = `<span class="grp" style="gap:0">${L('editNav', '‹', 'navb', ix[(k - 1 + ix.length) % ix.length])}<span class="link" style="padding:0 4px">Hole ${i + 1} of ${ix.length}</span>${L('editNav', '›', 'navb', ix[(k + 1) % ix.length])}</span>`;
+  return `${bar(L('go', '‹ Round', '', 'round'), nav)}
+  <div class="head split"><div class="col"><span class="kicker neg">Editing saved round · Par ${h.par} · ${h.yds} yds</span><h1 class="h1">Hole ${i + 1}</h1></div><div class="score"><span class="sv">${c.score}</span><span class="sn">${scoreName(c.score, h.par)}</span></div></div>
+  <div class="kv cmp"><div><span class="kicker">Saved</span><b>${was ? `${was.score} · ${scoreName(was.score, h.par)} · ${fmt(was.total)}` : 'Not carded'}</b></div>
+    <div class="${changed ? 'chg' : ''}"><span class="kicker">${changed ? 'Your edit' : 'No changes yet'}</span><b>${changed ? `${c.score} · ${scoreName(c.score, h.par)} · ${fmt(c.total)}` : '—'}</b></div></div>
+  <div class="scroll">${holeForm(h, d)}</div>
+  <div class="two" style="grid-template-columns:1fr 1.6fr"><button class="sheet-row${changed && e ? ' red' : ''}" data-a="editRevert">Revert</button>${cta('editSave', `Save hole ${i + 1} · ${fmt(c.total)}`)}</div>`;
+}
+
+function roundDetails() {
+  const r = viewed(); if (!r) { S.screen = 'home'; return home(); }
+  const c = S.courses.find(x => x.id === r.course_id), t = c && c.tees.find(x => x.name === r.tee_name);
+  const tees = c ? q('Tees', `Par ${sum(r.holes_snapshot, h => h.par)} · ${sum(r.holes_snapshot, h => h.yds).toLocaleString()} yds`,
+    `<div class="opts">${c.tees.map(x => `<button class="${x.name === r.tee_name ? 'on' : ''}" data-a="rdTee"${V(x.name)}>${esc(x.name)}</button>`).join('')}</div><span class="meta" style="font-size:12px">Yardages on every hole switch to these tees. Your shots stay the same; SG recalculates.${t ? '' : ' The tees this round was played from are no longer on the course.'}</span>`)
+    : q('Tees', '', `<span class="body">${esc(r.tee_name)}</span><span class="meta" style="font-size:12px">This course has been deleted, so tees can't be changed.</span>`);
+  return `${bar(L('go', '‹ Round', '', 'round'))}<div class="head"><span class="kicker neg">Editing saved round</span><h1 class="h1">Date &amp; tees</h1></div>
+  <div class="scroll rule">
+    ${q('Course', "can't change after play", `<span class="body" style="font-weight:600">${esc(r.course_name)}${rangeTxt(r)}</span>`)}
+    ${q('Date played', '', `<input class="txt" type="date" data-in="rdDate" value="${esc(r.played_on)}">`)}
+    ${tees}
+    <div style="flex:1;min-height:24px"></div>
+    <div class="pad rule">${L('delRound', S.arm === 'delRound' ? 'Tap again to delete this round' : 'Delete round', 'red')}</div>
+  </div>${cta('go', 'Done', '', 'round')}`;
 }
 
 function hole() {
@@ -287,19 +325,32 @@ function round() {
     let wi = -1; st.hs.forEach((h, j) => { if (h && (wi < 0 || h.total < st.hs[wi].total)) wi = j; });
     if (wi >= 0 && st.hs[wi].total < 0) notes.push(['Costliest hole', `Hole ${st.ix[wi] + 1} · ${scoreName(st.hs[wi].score, st.hs[wi].par)} · ${fmt(st.hs[wi].total)}`]);
   } else notes.push(['No holes yet', 'Card a hole to see where strokes went.']);
-  const right = isActive ? '<span class="meta" style="font-size:12px">vs Scratch (est.)</span>' : L('delRound', S.arm === 'delRound' ? 'Tap again to delete' : 'Delete round', 'red');
+  const ed = !isActive && S.editing;
+  const right = isActive ? '<span class="meta" style="font-size:12px">vs Scratch (est.)</span>' : ed ? L('editDone', 'Done', 'u red') : L('editRound', 'Edit round', 'u');
   const fo = isActive ? firstOpen(r) : 0;
   const fromP = !isActive && S.from === 'progress';
+  const cell = (h, j) => {
+    const i = st.ix[j], d = h ? h.score - h.par : 0, cls = 'hs' + (h ? (d <= -1 ? ' under' : d === 1 ? ' bogey' : d >= 2 ? ' dbl' : '') : ' none');
+    if (!ed) return h ? `<span class="${cls}" title="${scoreName(h.score, h.par)}">${h.score}</span>` : `<span class="${cls}">·</span>`;
+    const moved = S.orig && !same(fields(S.orig[i + 1]), fields(entry(r, i)));
+    return `<button class="${cls} tap${moved ? ' moved' : ''}" data-a="srHole"${V(i)} aria-label="${h ? 'Edit' : 'Card'} hole ${i + 1}">${h ? h.score : '+'}</button>`;
+  };
+  const changes = ed && S.orig ? st.ix.filter(i => !same(fields(S.orig[i + 1]), fields(entry(r, i)))).map(i => {
+    const h = r.holes_snapshot[i], o = S.orig[i + 1], now = entry(r, i), a = o ? holeSG(B, h, o) : null, b = now ? holeSG(B, h, now) : null;
+    return `Hole ${i + 1}: ${a ? a.score : '—'} → ${b ? b.score : '—'}${a && b ? ` (${fmt(b.total - a.total)} SG)` : ''}`;
+  }) : [];
   return `${bar(fromP ? L('go', '‹ Progress', '', 'progress') : homeL(), right)}
   <div class="scroll">
     <div class="head split"><div class="col"><span class="kicker">${esc(r.course_name)}${rangeTxt(r)} · ${st.score} (${toPar(st.score - st.par)})${st.n < st.count ? ' · thru ' + st.n : ''}</span><h1 class="h1">Where it went</h1></div><span class="big${neg(st.total)}" style="font-size:30px">${fmt(st.total)}</span></div>
+    ${ed ? `<div class="editbar"><span class="col" style="gap:3px"><span class="kicker neg">Editing</span><span class="t">Tap a score to change that hole</span></span><button class="btn2 sm" data-a="go"${V('roundDetails')}>Date &amp; tees ›</button></div>` : ''}
     <div class="heat rule">
       <div class="r" style="grid-template-columns:${cols};padding-bottom:4px"><span></span>${st.ix.map(i => `<span class="n">${i + 1}</span>`).join('')}<span class="n" style="text-align:right">SG</span></div>
-      <div class="r scores" style="grid-template-columns:${cols}"><span class="lab">Score</span>${st.hs.map(h => { const d = h ? h.score - h.par : 0; return h ? `<span class="hs${d <= -1 ? ' under' : d === 1 ? ' bogey' : d >= 2 ? ' dbl' : ''}" title="${scoreName(h.score, h.par)}">${h.score}</span>` : '<span class="hs none">·</span>'; }).join('')}<span class="tot">${st.n ? st.score : '—'}</span></div>
+      <div class="r scores" style="grid-template-columns:${cols}"><span class="lab">Score</span>${st.hs.map(cell).join('')}<span class="tot">${st.n ? st.score : '—'}</span></div>
       ${KEYS.map(k => `<div class="r" style="grid-template-columns:${cols}"><span class="lab">${SHORT[k]}</span>${st.hs.map(h => `<div class="c" style="background:${heat(h ? h.cats[k] : null)}"></div>`).join('')}<span class="tot${neg(st.cats[k])}">${fmt1(st.cats[k])}</span></div>`).join('')}
       <div class="r sum" style="grid-template-columns:${cols}"><span class="lab">Hole</span>${st.hs.map(h => `<div class="c" style="background:${heat(h ? h.total : null)}"></div>`).join('')}<span class="tot${neg(st.total)}">${fmt1(st.total)}</span></div>
     </div>
     <div class="legend"><span><i style="background:var(--color-text)"></i>Gained</span><span><i style="background:var(--color-accent)"></i>Lost</span><span>Darker = more</span><span style="margin-left:auto">${dfmt(r.played_on)}</span></div>
+    ${changes.length ? `<div class="notes"><div class="note"><span class="kicker">Changed</span><b>${changes.join(' · ')}</b></div></div>` : ''}
     <div class="notes">${notes.map(([l, t]) => `<div class="note"><span class="kicker">${l}</span><b>${esc(t)}</b></div>`).join('')}</div>
     <div style="flex:1;min-height:18px"></div>
   </div>
@@ -370,7 +421,7 @@ function overlay() {
   return '';
 }
 
-const SCREENS = { home, newRound, courses, courseEdit, card, hole, round, progress, sync: syncScreen };
+const SCREENS = { home, newRound, courses, courseEdit, card, hole, round, editCard, roundDetails, progress, sync: syncScreen };
 function render() {
   if (['card', 'hole'].includes(S.screen) && !active()) S.screen = 'home';
   const key = S.screen + ':' + S.cur + ':' + S.viewId, sc = $.querySelector('.scroll'), top = sc && key === lastKey ? sc.scrollTop : 0;
@@ -384,10 +435,26 @@ const SAMPLE = { pars: [4, 5, 3, 4, 4, 3, 4, 5, 4, 4, 3, 5, 4, 4, 3, 4, 5, 4], y
 const A = {
   noop: () => false,
   reload: () => { location.reload(); return false; },
-  go: v => { if (v === 'newRound') S.nr = { ...S.nr, courseId: null, tee: null, date: today() }; S.screen = v; S.err = ''; S.arm = null; if (v === 'home') kick(true); },
+  go: v => { if (v === 'newRound') S.nr = { ...S.nr, courseId: null, tee: null, date: today() }; if (!['round', 'editCard', 'roundDetails'].includes(v)) { S.editing = false; S.orig = null; } S.screen = v; S.err = ''; S.arm = null; if (v === 'home') kick(true); },
+  editRound: () => { const r = viewed(); S.editing = true; S.orig = structuredClone(S.holes[r.id] || {}); S.arm = null; },
+  editDone: () => { S.editing = false; S.orig = null; },
+  srHole: i => { S.cur = i; S.draft = draftFor(viewed(), i); S.screen = 'editCard'; },
+  editNav: i => A.srHole(i),
+  editRevert: () => { S.draft = draftFor(viewed(), S.cur); },
+  editSave: async () => {
+    const r = viewed(), i = S.cur, e = normalize(r.holes_snapshot[i], S.draft), old = entry(r, i);
+    await db.put('holes', { ...(old || {}), ...e, id: r.id + '-' + (i + 1), round_id: r.id, hole: i + 1, deleted_at: null });
+    await reload(); S.screen = 'round';
+  },
+  rdTee: async name => {
+    const r = viewed(), c = S.courses.find(x => x.id === r.course_id), t = c && c.tees.find(x => x.name === name);
+    if (!t || name === r.tee_name) return;
+    await db.put('rounds', { ...r, tee_name: t.name, holes_snapshot: t.holes.map(h => ({ par: h.par, yds: h.yds })) });
+    await reload();
+  },
   resume: () => openHole(firstOpen(active())),
   roundActive: () => { S.viewId = null; S.from = null; S.screen = 'round'; },
-  viewRound: id => { S.from = S.screen === 'progress' ? 'progress' : null; S.viewId = id; S.screen = 'round'; S.arm = null; },
+  viewRound: id => { S.from = S.screen === 'progress' ? 'progress' : null; S.viewId = id; S.screen = 'round'; S.arm = null; S.editing = false; S.orig = null; },
   progRange: v => { S.prog.range = v; },
   progCat: v => { S.prog.cat = v; },
   hole: i => openHole(i),
@@ -396,7 +463,7 @@ const A = {
   endSave: async () => { const a = active(); await db.put('rounds', { ...a, status: 'saved' }); await reload(); S.sheet = null; S.viewId = a.id; S.from = null; S.screen = 'round'; },
   finish: () => A.endSave(),
   endDiscard: async () => { if (!arm('discard')) return; await discardRound(active()); S.sheet = null; S.screen = 'home'; },
-  delRound: async () => { if (!arm('delRound')) return; await discardRound(S.rounds.find(r => r.id === S.viewId)); S.screen = 'home'; },
+  delRound: async () => { if (!arm('delRound')) return; await discardRound(S.rounds.find(r => r.id === S.viewId)); S.editing = false; S.orig = null; S.screen = 'home'; },
   set: ([k, v]) => {
     S.draft = { ...S.draft, [k]: v };
     if (k === 'approach_result' && v !== 'green' && !(S.draft.short_game_shots > 0)) S.draft.short_game_shots = 1;
@@ -521,6 +588,7 @@ const IN = {
   tname: v => { S.ec.tees[S.et].name = v; },
   yds: (v, el) => { S.ec.tees[S.et].holes[+el.dataset.i].yds = v.replace(/\D/g, ''); const t = document.getElementById('teeTot'); if (t) t.textContent = teeTot(); },
   nrDate: v => { S.nr.date = v; },
+  rdDate: async v => { const r = viewed(); if (!/^\d{4}-\d{2}-\d{2}$/.test(v) || !r || r.played_on === v) return; await db.put('rounds', { ...r, played_on: v }); await reload(); },
   nrCourse: v => { S.nr = { ...S.nr, courseId: v, tee: null }; render(); },
   email: v => { S.email = v; }
 };
