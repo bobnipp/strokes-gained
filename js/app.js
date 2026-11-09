@@ -181,8 +181,8 @@ function home() {
     <div style="flex:1;min-height:24px"></div>
     <div class="menu">
       ${S.update ? '<button class="menu-row" data-a="reload"><span>Update ready</span><span class="m neg">Tap to reload</span></button>' : ''}
-      <button class="menu-row" data-a="go"${V('courses')}><span>Courses</span><span class="m">${S.courses.length} saved</span></button>      <button class="menu-row" data-a="exportData"><span>Export backup (JSON)</span></button>
-      <label class="menu-row"><span>Import backup</span><input type="file" accept="application/json,.json" data-in="import" hidden></label>
+      <button class="menu-row" data-a="go"${V('courses')}><span>Courses</span><span class="m">${S.courses.length} saved</span></button>
+      <button class="menu-row" data-a="go"${V('settings')}><span>Settings</span><span class="m">›</span></button>
     </div>
   </div>`;
 }
@@ -390,6 +390,24 @@ function progress() {
   </div>`;
 }
 
+const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+// Settings: grouped rows. Add new settings as rows in a section here.
+function settings() {
+  const sec = (title, rows) => `<div class="pad kicker" style="padding-bottom:8px;padding-top:20px">${title}</div><div class="menu">${rows.join('')}</div>`;
+  return `${bar(homeL())}<div class="head"><span class="kicker">Strokes Gained</span><h1 class="h1">Settings</h1></div>
+  <div class="scroll">
+    ${sec('Your data', [
+      `<button class="menu-row" data-a="go"${V('sync')}><span>Sync</span><span class="m${['ok', 'syncing'].includes(S.sync.state) ? '' : ' neg'}">${syncTxt()} ›</span></button>`,
+      `<button class="menu-row" data-a="exportData"><span>Export backup</span><span class="m">JSON file</span></button>`,
+      `<label class="menu-row"><span>Import backup</span><span class="m">Adds newer records</span><input type="file" accept="application/json,.json" data-in="import" hidden></label>`])}
+    <p class="body pad meta" style="font-size:12px;padding-top:10px">${sync.enabled() ? 'Sync keeps your rounds on the server. A backup file is an extra copy you control.' : 'Until sync is set up, rounds live only on this phone. Export a backup now and then.'}</p>
+    ${sec('About', [
+      `<div class="menu-row" style="cursor:default"><span>Baseline</span><span class="m">Scratch (est.) · ${esc(B.id)}</span></div>`,
+      `<div class="menu-row" style="cursor:default"><span>Saved on this phone</span><span class="m">${plural(S.courses.length, 'course')} · ${plural(S.rounds.filter(r => r.status === 'saved').length, 'round')}</span></div>`])}
+    <div style="flex:1;min-height:24px"></div>
+  </div>`;
+}
+
 function syncScreen() {
   let body;
   if (!sync.enabled()) body = `<p class="body pad">Server sync isn't configured yet, so rounds are saved on this phone only. In step 5 you'll create a free Supabase project and paste its URL and anon key into <code>config.js</code>.</p>`;
@@ -397,7 +415,7 @@ function syncScreen() {
     <div class="pad col" style="gap:10px">${btn2('signIn', S.sent ? 'Link sent · check your email' : 'Send sign-in link')}<span class="meta">Open the link on this device. You stay signed in after that.</span></div>`;
   else body = `<div class="kv"><div><span class="kicker">Signed in</span><b>${esc(S.sync.email)}</b></div><div><span class="kicker">Status</span><b class="${S.sync.state === 'error' ? 'neg' : ''}">${syncTxt()}</b></div></div>
     <div class="pad col" style="gap:14px">${btn2('syncNow', 'Sync now')}${L('signOut', 'Sign out', 'u')}</div>`;
-  return `${bar(homeL())}<div class="head"><span class="kicker">Supabase</span><h1 class="h1">Sync</h1></div>
+  return `${bar(S.syncFrom === 'settings' ? L('go', '‹ Settings', '', 'settings') : homeL())}<div class="head"><span class="kicker">Supabase</span><h1 class="h1">Sync</h1></div>
   <div class="scroll rule">${body}${S.sync.error ? `<p class="err">${esc(S.sync.error)}</p>` : ''}
   <p class="body pad meta">Every change saves on the phone first. Sync runs when you open the home screen, a few seconds after each change, and when the phone comes back online.</p></div>`;
 }
@@ -422,7 +440,7 @@ function overlay() {
   return '';
 }
 
-const SCREENS = { home, newRound, courses, courseEdit, card, hole, round, editCard, roundDetails, progress, sync: syncScreen };
+const SCREENS = { home, newRound, courses, courseEdit, card, hole, round, editCard, roundDetails, progress, settings, sync: syncScreen };
 function render() {
   if (['card', 'hole'].includes(S.screen) && !active()) S.screen = 'home';
   const key = S.screen + ':' + S.cur + ':' + S.viewId, sc = $.querySelector('.scroll'), top = sc && key === lastKey ? sc.scrollTop : 0;
@@ -436,7 +454,7 @@ const SAMPLE = { pars: [4, 5, 3, 4, 4, 3, 4, 5, 4, 4, 3, 5, 4, 4, 3, 4, 5, 4], y
 const A = {
   noop: () => false,
   reload: () => { location.reload(); return false; },
-  go: v => { if (v === 'newRound') S.nr = { ...S.nr, courseId: null, tee: null, date: today() }; if (!['round', 'editCard', 'roundDetails'].includes(v)) { S.editing = false; S.orig = null; } S.screen = v; S.err = ''; S.arm = null; if (v === 'home') kick(true); },
+  go: v => { if (v === 'sync') S.syncFrom = S.screen; if (v === 'newRound') S.nr = { ...S.nr, courseId: null, tee: null, date: today() }; if (!['round', 'editCard', 'roundDetails'].includes(v)) { S.editing = false; S.orig = null; } S.screen = v; S.err = ''; S.arm = null; if (v === 'home') kick(true); },
   editRound: () => { const r = viewed(); S.editing = true; S.orig = structuredClone(S.holes[r.id] || {}); S.arm = null; },
   editDone: () => { S.editing = false; S.orig = null; },
   srHole: i => { S.cur = i; S.draft = draftFor(viewed(), i); S.screen = 'editCard'; },
@@ -573,7 +591,7 @@ async function runSync() {
 }
 function soft(changed) {
   if (S.screen === 'courseEdit' || S.pad || document.activeElement?.tagName === 'INPUT') return;
-  if (changed || S.screen === 'home' || S.screen === 'sync') render();
+  if (changed || ['home', 'sync', 'settings'].includes(S.screen)) render();
 }
 
 // ---- events
