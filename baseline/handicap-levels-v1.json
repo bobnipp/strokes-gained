@@ -1,0 +1,49 @@
+{
+  "id": "handicap-levels-v1",
+  "note": "Estimates, not published tables. Each level is the TYPICAL (average) round of a golfer at that handicap, compared with a typical scratch round. strokes_per_18 = 1.1 x handicap. That gap is split 25% off the tee, 40% approach, 20% around the green, 15% putting, following Broadie's finding that the long game is about two-thirds of the scoring gap and putting about 15%. 'adjust' is added per shot of that kind: ott per par-4/5 tee shot (14 per round), app per hole (18), arg per missed green (missed_greens_per_18 = 6 + 0.5 x handicap), putt per hole with putts (18). Change the numbers here to retune; past rounds recalculate.",
+  "levels": {
+    "scratch": {
+      "label": "Scratch",
+      "strokes_per_18": 0,
+      "adjust": {
+        "ott": 0,
+        "app": 0,
+        "arg": 0,
+        "putt": 0
+      }
+    },
+    "h5": {
+      "label": "5 handicap",
+      "strokes_per_18": 5.5,
+      "missed_greens_per_18": 8.5,
+      "adjust": {
+        "ott": 0.0982,
+        "app": 0.1222,
+        "arg": 0.1294,
+        "putt": 0.0458
+      }
+    },
+    "h10": {
+      "label": "10 handicap",
+      "strokes_per_18": 11.0,
+      "missed_greens_per_18": 11.0,
+      "adjust": {
+        "ott": 0.1964,
+        "app": 0.2444,
+        "arg": 0.2,
+        "putt": 0.0917
+      }
+    },
+    "h15": {
+      "label": "15 handicap",
+      "strokes_per_18": 16.5,
+      "missed_greens_per_18": 13.5,
+      "adjust": {
+        "ott": 0.2946,
+        "app": 0.3667,
+        "arg": 0.2444,
+        "putt": 0.1375
+      }
+    }
+  }
+}

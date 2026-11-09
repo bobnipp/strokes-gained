@@ -43,5 +43,15 @@ export function holeSG(B, h, e) {
   app += E(lieApp, A) - (onGreen ? fpE : E(e.approach_result, offD)) - 1; score++;
   if (!onGreen) { arg = E(e.approach_result, offD) - fpE - e.short_game_shots; score += e.short_game_shots; }
   if (putts > 0) { putt = fpE - putts; score += putts; }
-  return { par, yds, score, cats: { ott, app, arg, putt }, total: E('tee', yds) - score, A, d1, pen, layup, onGreen };
+  // Handicap-level baseline (B.adjust): add a fixed amount to each category that applies on this hole.
+  // Scratch has none. Categories still sum to the hole total.
+  let total = E('tee', yds) - score;
+  const adj = B.adjust;
+  if (adj) {
+    if (ott !== null) { ott += adj.ott; total += adj.ott; }
+    app += adj.app; total += adj.app;
+    if (arg !== null) { arg += adj.arg; total += adj.arg; }
+    if (putt !== null) { putt += adj.putt; total += adj.putt; }
+  }
+  return { par, yds, score, cats: { ott, app, arg, putt }, total, A, d1, pen, layup, onGreen };
 }

@@ -10,6 +10,7 @@ Personal strokes-gained tracker. Static web app: no build step, no server code.
 - `js/sync.js`: Supabase sync (pull newer, then push changes).
 - `config.js`: Supabase URL and anon key. Blank = phone-only.
 - `baseline/broadie-2011-scratch-v1.json`: expected-strokes table + scratch offset.
+- `baseline/handicap-levels-v1.json`: estimated 5/10/15-handicap adjustments.
 - `supabase/schema.sql`: run once in Supabase SQL Editor.
 - `tests.html`: open in a browser to check the calculation.
 
@@ -21,14 +22,18 @@ Modules need a local web server, not file://:
 
 Then open http://localhost:8000 and http://localhost:8000/tests.html.
 
-resources/* has sample data that can be imported for testing.
-
 ## Baseline
 Tour values from Broadie's published table, plus an estimated per-lie offset
 so a typical scratch round totals about 0. Check the tour rows against the
 published source. To change the offset, edit `scratch_offset`, bump the `id`,
 and update the file name in `js/app.js`. Strokes gained is never stored, so
 past rounds recalculate.
+
+Settings → Strokes gained → Compare against picks Scratch or a typical
+5/10/15-handicap round (stored per device). Those levels are estimates in
+`baseline/handicap-levels-v1.json`: a fixed amount added per tee shot,
+approach, missed green and putting hole. The file explains how the numbers
+were derived; edit it to retune, and bump `VERSION` in sw.js.
 
 ## Offline and install
 `sw.js` caches the app so it opens with no signal; `manifest.webmanifest` and

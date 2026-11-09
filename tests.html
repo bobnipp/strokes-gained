@@ -49,6 +49,21 @@ for (const par of [3, 4, 5]) for (const fin of ['green', 'fringe', 'rough', 'san
 }
 check('Every combination: categories sum to total = E(tee) − score', ok, '48 combinations');
 
+// Handicap-level baselines: categories still sum to total; total rises by exactly the adjustments that applied.
+const L = await (await fetch('baseline/handicap-levels-v1.json')).json();
+for (const [k, lv] of Object.entries(L.levels)) {
+  const BL = { ...B, adjust: lv.adjust }; let good = true;
+  for (const par of [3, 4, 5]) for (const fin of ['green', 'rough']) for (const putts of [0, 2]) {
+    const yds = { 3: 190, 4: 430, 5: 550 }[par];
+    const e = { ...base, tee_result: par === 3 ? null : 'fairway', go_for_green_on: par === 5 ? 2 : null, approach_from_yds: par === 3 ? yds : 160,
+      approach_result: fin, short_game_shots: fin === 'green' ? 0 : 1, first_putt_ft: putts ? 15 : null, putts };
+    const x = holeSG(BL, { par, yds }, e), s0 = holeSG(B, { par, yds }, e);
+    const added = (par !== 3 ? lv.adjust.ott : 0) + lv.adjust.app + (fin !== 'green' ? lv.adjust.arg : 0) + (putts ? lv.adjust.putt : 0);
+    if (!near(sumCats(x), x.total) || !near(x.total - s0.total, added) || x.score !== s0.score) good = false;
+  }
+  check(`${lv.label} baseline: adds ${lv.strokes_per_18} per typical 18, categories still sum`, good, '12 combinations');
+}
+
 const pass = rows.filter(r => r.ok).length;
 document.getElementById('sum').textContent = `${pass} of ${rows.length} passed · baseline ${B.id}`;
 document.getElementById('out').innerHTML = rows.map(r => `<tr><td class="${r.ok ? '' : 'fail'}">${r.ok ? 'Pass' : 'FAIL'}</td><td>${r.name}<br><span style="color:var(--color-neutral-700);font-size:12px">${r.detail}</span></td></tr>`).join('');

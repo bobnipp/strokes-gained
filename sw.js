@@ -1,10 +1,10 @@
 // Bump VERSION on every deploy so phones pick up the new files.
-const VERSION = 'v10';
+const VERSION = 'v11';
 const SHELL = `shell-${VERSION}`, RUNTIME = 'runtime-v1';
 const FILES = [
   './', 'index.html', 'app.css', 'ds.css', 'config.js', 'manifest.webmanifest',
   'js/app.js', 'js/sg.js', 'js/db.js', 'js/sync.js',
-  'baseline/broadie-2011-scratch-v1.json',
+  'baseline/broadie-2011-scratch-v1.json', 'baseline/handicap-levels-v1.json',
   'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png'
 ];
 
