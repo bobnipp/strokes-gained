@@ -295,6 +295,7 @@ function round() {
     <div class="head split"><div class="col"><span class="kicker">${esc(r.course_name)}${rangeTxt(r)} · ${st.score} (${toPar(st.score - st.par)})${st.n < st.count ? ' · thru ' + st.n : ''}</span><h1 class="h1">Where it went</h1></div><span class="big${neg(st.total)}" style="font-size:30px">${fmt(st.total)}</span></div>
     <div class="heat rule">
       <div class="r" style="grid-template-columns:${cols};padding-bottom:4px"><span></span>${st.ix.map(i => `<span class="n">${i + 1}</span>`).join('')}<span class="n" style="text-align:right">SG</span></div>
+      <div class="r scores" style="grid-template-columns:${cols}"><span class="lab">Score</span>${st.hs.map(h => { const d = h ? h.score - h.par : 0; return h ? `<span class="hs${d <= -1 ? ' under' : d === 1 ? ' bogey' : d >= 2 ? ' dbl' : ''}" title="${scoreName(h.score, h.par)}">${h.score}</span>` : '<span class="hs none">·</span>'; }).join('')}<span class="tot">${st.n ? st.score : '—'}</span></div>
       ${KEYS.map(k => `<div class="r" style="grid-template-columns:${cols}"><span class="lab">${SHORT[k]}</span>${st.hs.map(h => `<div class="c" style="background:${heat(h ? h.cats[k] : null)}"></div>`).join('')}<span class="tot${neg(st.cats[k])}">${fmt1(st.cats[k])}</span></div>`).join('')}
       <div class="r sum" style="grid-template-columns:${cols}"><span class="lab">Hole</span>${st.hs.map(h => `<div class="c" style="background:${heat(h ? h.total : null)}"></div>`).join('')}<span class="tot${neg(st.total)}">${fmt1(st.total)}</span></div>
     </div>

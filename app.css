@@ -138,3 +138,10 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:.92em}
 .star{border:0;background:transparent;font:400 24px/1 var(--font-body);color:var(--color-neutral-600)}
 .star:hover{color:var(--color-accent-700)}
 .crow.home .star{color:var(--color-accent)}
+/* per-hole score row on Where it went */
+.heat .r.scores{margin-bottom:4px}
+.heat .hs{height:22px;display:flex;align-items:center;justify-content:center;font:600 11px/1 var(--font-body);font-variant-numeric:tabular-nums}
+.heat .hs.under{background:var(--color-text);color:var(--color-bg);font-weight:800}
+.heat .hs.bogey{color:var(--color-accent-700);font-weight:800}
+.heat .hs.dbl{background:var(--color-accent-700);color:var(--color-bg);font-weight:800}
+.heat .hs.none{color:var(--color-neutral-500)}
