@@ -9,7 +9,7 @@ const S = {
   pad: null, sheet: null, arm: null, ec: null, et: 0, err: '',
   nr: { courseId: null, tee: null, range: '18', date: today() },
   sync: { state: 'off', at: 0, email: null, error: '' }, email: '', sent: false, update: false, theme: 'black',
-  prog: { range: '10', cat: 'total' }, from: null, level: 'scratch'
+  prog: { range: '10', cat: 'total' }, from: null, level: 'scratch', prefs: {}, uid: null, showHidden: false
 };
 const KEYS = ['ott', 'app', 'arg', 'putt'];
 const SHORT = { ott: 'Tee', app: 'App', arg: 'ARG', putt: 'Putt' };
@@ -85,9 +85,31 @@ function chart(pts, { h = 180, axis = true, label = '' } = {}) {
   return s + '</svg>';
 }
 
+// ---- per-user prefs (synced privately): home course, hidden courses
+const pref = k => S.prefs[k];
+async function setPref(k, value) { await db.put('prefs', { id: k, value, deleted_at: null }); S.prefs[k] = value; }
+const homeId = () => pref('home_course') || null;
+const isHome = c => !!c && c.id === homeId();
+const hiddenIds = () => pref('hidden_courses') || [];
+const isHidden = c => hiddenIds().includes(c.id);
+const shown = () => S.courses.filter(c => !isHidden(c));
+// ---- shared courses: anyone signed in can edit; only the person who added a course can delete it
+const shared = () => sync.enabled() && !!S.sync.email;
+const canDelete = c => !c.owner || c.owner === S.uid;
+const nameOf = em => em ? em.split('@')[0] : '';
+const who = n => n && n === nameOf(S.sync.email) ? 'you' : n;
+function dupHtml(c) {
+  const n = (c.name || '').trim().toLowerCase();
+  if (c.id || n.length < 3) return '';
+  const m = S.courses.filter(x => x.name.toLowerCase().includes(n)).slice(0, 3);
+  return m.length ? `Already added: ${m.map(x => `<button class="link u" data-a="editCourse"${V(x.id)}>${esc(x.name)}${isHidden(x) ? ' (hidden)' : ''}</button>`).join(', ')}. Use that one instead?` : '';
+}
+
 async function reload() {
-  const [cs, rs, hs] = await Promise.all([db.all('courses'), db.all('rounds'), db.all('holes')]);
-  S.courses = cs.filter(x => !x.deleted_at).sort((a, b) => (b.home ? 1 : 0) - (a.home ? 1 : 0) || a.name.localeCompare(b.name));
+  const [cs, rs, hs, ps] = await Promise.all([db.all('courses'), db.all('rounds'), db.all('holes'), db.all('prefs')]);
+  S.prefs = {};
+  for (const p of ps) if (!p.deleted_at) S.prefs[p.id] = p.value;
+  S.courses = cs.filter(x => !x.deleted_at).sort((a, b) => (isHome(b) ? 1 : 0) - (isHome(a) ? 1 : 0) || a.name.localeCompare(b.name));
   S.rounds = rs.filter(x => !x.deleted_at).sort((a, b) => b.played_on.localeCompare(a.played_on) || b.updated_at.localeCompare(a.updated_at));
   S.holes = {};
   for (const h of hs) if (!h.deleted_at) (S.holes[h.round_id] ??= {})[h.hole] = h;
@@ -181,7 +203,7 @@ function home() {
     <div style="flex:1;min-height:24px"></div>
     <div class="menu">
       ${S.update ? '<button class="menu-row" data-a="reload"><span>Update ready</span><span class="m neg">Tap to reload</span></button>' : ''}
-      <button class="menu-row" data-a="go"${V('courses')}><span>Courses</span><span class="m">${S.courses.length} saved</span></button>
+      <button class="menu-row" data-a="go"${V('courses')}><span>Courses</span><span class="m">${shown().length} saved</span></button>
       <button class="menu-row" data-a="go"${V('settings')}><span>Settings</span><span class="m">›</span></button>
     </div>
   </div>`;
@@ -189,18 +211,18 @@ function home() {
 
 // New round's course and tees: your pick, else the home course, else the last course played, else the first.
 function nrPick() {
-  const last = S.rounds.find(r => S.courses.some(x => x.id === r.course_id));
-  const c = S.courses.find(x => x.id === S.nr.courseId) || S.courses.find(x => x.home) || (last && S.courses.find(x => x.id === last.course_id)) || S.courses[0];
+  const list = shown(), last = S.rounds.find(r => list.some(x => x.id === r.course_id));
+  const c = list.find(x => x.id === S.nr.courseId) || list.find(isHome) || (last && list.find(x => x.id === last.course_id)) || list[0];
   const lastTee = S.rounds.find(r => r.course_id === c.id)?.tee_name, t = c.tees.find(x => x.name === S.nr.tee) || c.tees.find(x => x.name === lastTee) || c.tees[0];
-  return { c, t, last };
+  return { c, t, last, list };
 }
 function newRound() {
-  if (!S.courses.length) return `${bar(homeL())}<div class="head"><span class="kicker">New round</span><h1 class="h1">Add a course first</h1></div>
+  if (!shown().length) return `${bar(homeL())}<div class="head"><span class="kicker">New round</span><h1 class="h1">Add a course first</h1></div>
     <div class="scroll"><p class="body pad">Rounds copy par and yardage from a saved course.</p></div>${cta('newCourse', 'Add course')}`;
-  const n = S.nr, { c, t, last } = nrPick();
+  const n = S.nr, { c, t, last, list } = nrPick();
   return `${bar(homeL())}<div class="head"><span class="kicker">New round</span><h1 class="h1">${esc(c.name)}</h1></div>
   <div class="scroll rule">
-    ${S.courses.length > 1 ? q('Course', c.home ? 'home course' : last && last.course_id === c.id ? 'last played' : '', `<select class="txt sel" data-in="nrCourse">${S.courses.map(x => `<option value="${esc(x.id)}"${x.id === c.id ? ' selected' : ''}>${x.home ? '★ ' : ''}${esc(x.name)}</option>`).join('')}</select>`) : ''}
+    ${list.length > 1 ? q('Course', isHome(c) ? 'home course' : last && last.course_id === c.id ? 'last played' : '', `<select class="txt sel" data-in="nrCourse">${list.map(x => `<option value="${esc(x.id)}"${x.id === c.id ? ' selected' : ''}>${isHome(x) ? '★ ' : ''}${esc(x.name)}</option>`).join('')}</select>`) : ''}
     ${q('Tees', `Par ${sum(t.holes, h => h.par)} · ${sum(t.holes, h => h.yds).toLocaleString()} yds`, `<div class="opts">${c.tees.map(x => `<button class="${x.name === t.name ? 'on' : ''}" data-a="nrTee"${V(x.name)}>${esc(x.name)}</button>`).join('')}</div>`)}
     ${q('Holes', '', opts('nrRange', n.range, ['18', 'front', 'back'], ['18 holes', 'Front 9', 'Back 9']))}
     ${q('Date', '', `<input class="txt" type="date" data-in="nrDate" value="${esc(n.date)}">`)}
@@ -208,13 +230,19 @@ function newRound() {
 }
 
 function courses() {
-  const row = c => `<div class="crow${c.home ? ' home' : ''}"><button class="list-row two" data-a="editCourse"${V(c.id)}><span class="col" style="gap:3px"><span class="t">${esc(c.name)}</span><span class="m">${c.tees.map(t => esc(t.name)).join(' · ')}</span></span><span class="m">Par ${sum(c.tees[0].holes, h => h.par)}</span></button><button class="star" data-a="homeCourse"${V(c.id)} aria-pressed="${!!c.home}" aria-label="${c.home ? 'Remove ' + esc(c.name) + ' as home course' : 'Make ' + esc(c.name) + ' your home course'}">${c.home ? '★' : '☆'}</button></div>`;
-  const home = S.courses.find(c => c.home), rest = S.courses.filter(c => !c.home);
+  const tees = c => c.tees.map(t => esc(t.name)).join(' · ');
+  const by = c => shared() && c.added_by && c.owner && c.owner !== S.uid ? ` · added by ${esc(c.added_by)}` : '';
+  const row = c => `<div class="crow${isHome(c) ? ' home' : ''}"><button class="list-row two" data-a="editCourse"${V(c.id)}><span class="col" style="gap:3px"><span class="t">${esc(c.name)}</span><span class="m">${tees(c)}${by(c)}</span></span><span class="m">Par ${sum(c.tees[0].holes, h => h.par)}</span></button><button class="star" data-a="homeCourse"${V(c.id)} aria-pressed="${isHome(c)}" aria-label="${isHome(c) ? 'Remove ' + esc(c.name) + ' as home course' : 'Make ' + esc(c.name) + ' your home course'}">${isHome(c) ? '★' : '☆'}</button></div>`;
+  const vis = shown(), home = vis.find(isHome), rest = vis.filter(c => !isHome(c)), hid = S.courses.filter(isHidden);
+  const hidden = !hid.length ? '' : `<button class="menu-row" data-a="toggleHidden" style="margin-top:20px;border-top:2px solid var(--color-divider)"><span>Hidden courses</span><span class="m">${hid.length} ${S.showHidden ? '▴' : '▾'}</span></button>`
+    + (S.showHidden ? hid.map(c => `<div class="crow" style="grid-template-columns:minmax(0,1fr) auto"><div class="list-row two" style="cursor:default"><span class="col" style="gap:3px"><span class="t">${esc(c.name)}</span><span class="m">${tees(c)}${by(c)}</span></span></div><button class="link u" data-a="unhideCourse"${V(c.id)} style="padding:0 18px">Show</button></div>`).join('') : '');
   const body = !S.courses.length ? `<p class="body pad meta">No courses yet.</p><div class="pad" style="padding-top:0">${btn2('sampleCourse', 'Add a sample course for testing')}</div>`
     : (home ? `<div class="pad kicker" style="padding-bottom:8px;color:var(--color-accent-700)">Home course</div><div class="rule">${row(home)}</div><div class="pad kicker" style="padding-bottom:8px;padding-top:20px">All courses · A–Z</div>` : '')
-      + `<div class="rule">${rest.map(row).join('')}</div>`
-      + (home ? '' : `<p class="body pad meta" style="font-size:12px">Tap ☆ to set your home course. It's listed first when you start a round.</p>`);
-  return `${bar(homeL())}<div class="head"><span class="kicker">${S.courses.length} saved</span><h1 class="h1">Courses</h1></div>
+      + (vis.length ? `<div class="rule">${rest.map(row).join('')}</div>` : `<p class="body pad meta">All your courses are hidden.</p>`)
+      + (home || !vis.length ? '' : `<p class="body pad meta" style="font-size:12px">Tap ☆ to set your home course. It's listed first when you start a round.</p>`)
+      + hidden
+      + (shared() ? `<p class="body pad meta" style="font-size:12px">Courses are shared with everyone you've invited. Anyone can fix a course; only the person who added it can delete it.</p>` : '');
+  return `${bar(homeL())}<div class="head"><span class="kicker">${plural(vis.length, 'course')}${shared() ? ' · shared' : ''}</span><h1 class="h1">Courses</h1></div>
   <div class="scroll${home ? '' : ' rule'}">${body}</div>
   ${cta('newCourse', 'Add course')}`;
 }
@@ -222,10 +250,12 @@ function courses() {
 const teeTot = () => { const t = S.ec.tees[S.et]; return `Par ${sum(t.holes, h => h.par)} · ${sum(t.holes, h => +h.yds || 0).toLocaleString()} yds`; };
 function courseEdit() {
   const c = S.ec, t = c.tees[S.et];
-  return `${bar(L('go', '‹ Courses', '', 'courses'), c.id ? L('delCourse', S.arm === 'delCourse' ? 'Tap again to delete' : 'Delete course', 'red') : '')}
-  <div class="head"><span class="kicker">Par and yardage per hole</span><h1 class="h1">${c.id ? 'Edit course' : 'New course'}</h1></div>
+  const right = !c.id ? '' : canDelete(c) ? L('delCourse', S.arm === 'delCourse' ? 'Tap again to delete' : shared() ? 'Delete for everyone' : 'Delete course', 'red') : L('hideCourse', 'Hide from my list', 'red');
+  const credit = c.id && c.added_by ? `Added by ${esc(who(c.added_by))}${c.edited_by && c.edited_at ? ` · edited by ${esc(who(c.edited_by))}, ${dfmt(c.edited_at.slice(0, 10))}` : ''}` : 'Par and yardage per hole';
+  return `${bar(L('go', '‹ Courses', '', 'courses'), right)}
+  <div class="head"><span class="kicker">${credit}</span><h1 class="h1">${c.id ? 'Edit course' : 'New course'}</h1>${c.id && shared() ? `<span class="meta" style="font-size:12px">Shared: your changes update this course for everyone. Past rounds keep the yardages they were played with.</span>` : ''}</div>
   <div class="scroll rule">
-    ${q('Course name', '', `<input class="txt" data-in="cname" value="${esc(c.name)}" placeholder="e.g. Marsh Creek GC" autocomplete="off">`)}
+    ${q('Course name', '', `<input class="txt" data-in="cname" value="${esc(c.name)}" placeholder="e.g. Marsh Creek GC" autocomplete="off"><p class="dup" id="dupHint">${dupHtml(c)}</p>`)}
     <div class="q"><div class="lbl"><span class="kicker">Tee set</span><span class="hint" id="teeTot">${teeTot()}</span></div>
       <div class="opts">${c.tees.map((x, j) => `<button class="${j === S.et ? 'on' : ''}" data-a="tee"${V(j)}>${esc(x.name) || 'Tee ' + (j + 1)}</button>`).join('')}<button data-a="addTee">+ Tee</button></div></div>
     ${q('Tee name', c.tees.length > 1 ? '' : 'new tees copy this one', `<input class="txt" data-in="tname" value="${esc(t.name)}" placeholder="e.g. Blue" autocomplete="off">`)}
@@ -416,9 +446,10 @@ function syncScreen() {
   let body;
   if (!sync.enabled()) body = `<p class="body pad">Server sync isn't configured yet, so rounds are saved on this phone only. In step 5 you'll create a free Supabase project and paste its URL and anon key into <code>config.js</code>.</p>`;
   else if (!S.sync.email) body = `${q('Email', '', `<input class="txt" type="email" data-in="email" value="${esc(S.email)}" placeholder="you@example.com" autocomplete="email">`)}
-    <div class="pad col" style="gap:10px">${btn2('signIn', S.sent ? 'Link sent · check your email' : 'Send sign-in link')}<span class="meta">Open the link on this device. You stay signed in after that.</span></div>`;
+    <div class="pad col" style="gap:10px">${btn2('signIn', S.sent ? 'Link sent · check your email' : 'Send sign-in link')}<span class="meta">Invite-only: use the email you were invited with. Open the link on this device. You stay signed in after that.</span></div>`;
   else body = `<div class="kv"><div><span class="kicker">Signed in</span><b>${esc(S.sync.email)}</b></div><div><span class="kicker">Status</span><b class="${S.sync.state === 'error' ? 'neg' : ''}">${syncTxt()}</b></div></div>
-    <div class="pad col" style="gap:14px">${btn2('syncNow', 'Sync now')}${L('signOut', 'Sign out', 'u')}</div>`;
+    <div class="pad col" style="gap:14px">${btn2('syncNow', 'Sync now')}${L('signOut', 'Sign out', 'u')}</div>
+    <p class="body pad meta" style="padding-top:0">Courses are shared with everyone you've invited. Your rounds, home course and settings stay private.</p>`;
   return `${bar(S.syncFrom === 'settings' ? L('go', '‹ Settings', '', 'settings') : homeL())}<div class="head"><span class="kicker">Supabase</span><h1 class="h1">Sync</h1></div>
   <div class="scroll rule">${body}${S.sync.error ? `<p class="err">${esc(S.sync.error)}</p>` : ''}
   <p class="body pad meta">Every change saves on the phone first. Sync runs when you open the home screen, a few seconds after each change, and when the phone comes back online.</p></div>`;
@@ -516,13 +547,15 @@ const A = {
   },
   newCourse: () => { S.ec = { name: '', tees: [{ name: '', holes: Array.from({ length: 18 }, () => ({ par: 4, yds: '' })) }] }; S.et = 0; S.err = ''; S.arm = null; S.screen = 'courseEdit'; },
   // One home course: starring a course clears the flag elsewhere; starring the home course clears it.
-  homeCourse: async id => {
-    for (const c of S.courses) {
-      const want = c.id === id ? !c.home : false;
-      if (!!c.home !== want) { const { dirty, ...rest } = c; await db.put('courses', { ...rest, home: want }); }
-    }
-    await reload();
+  homeCourse: async id => { await setPref('home_course', homeId() === id ? null : id); await reload(); },
+  hideCourse: async () => {
+    const id = S.ec.id;
+    await setPref('hidden_courses', [...new Set([...hiddenIds(), id])]);
+    if (homeId() === id) await setPref('home_course', null);
+    await reload(); S.screen = 'courses';
   },
+  unhideCourse: async id => { await setPref('hidden_courses', hiddenIds().filter(x => x !== id)); await reload(); },
+  toggleHidden: () => { S.showHidden = !S.showHidden; },
   editCourse: id => { S.ec = structuredClone(S.courses.find(c => c.id === id)); S.et = 0; S.err = ''; S.arm = null; S.screen = 'courseEdit'; },
   tee: j => { S.et = j; },
   addTee: () => { S.ec.tees.push({ name: '', holes: S.ec.tees[S.et].holes.map(h => ({ ...h })) }); S.et = S.ec.tees.length - 1; },
@@ -539,11 +572,15 @@ const A = {
       const bad = t.holes.findIndex(h => !(+h.yds >= 50 && +h.yds <= 700));
       if (bad >= 0) { S.et = j; S.err = `${tn}: hole ${bad + 1} needs a yardage between 50 and 700.`; return; }
     }
-    const { dirty, ...rest } = c;
-    await db.put('courses', { ...rest, id: c.id || db.uuid(), name, deleted_at: null, tees: c.tees.map(t => ({ name: t.name.trim(), holes: t.holes.map(h => ({ par: h.par, yds: +h.yds })) })) });
+    const dup = S.courses.find(x => x.id !== c.id && x.name.trim().toLowerCase() === name.toLowerCase());
+    if (dup) { S.err = `“${dup.name}” is already in your courses${isHidden(dup) ? ' (hidden)' : ''}. Use that one, or give this a different name.`; return; }
+    const me = shared() ? nameOf(S.sync.email) : null;
+    const stamp = !me ? {} : c.id ? { edited_by: me, edited_at: new Date().toISOString() } : { added_by: me };
+    const { dirty, home, ...rest } = c;
+    await db.put('courses', { ...rest, ...stamp, id: c.id || db.uuid(), name, deleted_at: null, tees: c.tees.map(t => ({ name: t.name.trim(), holes: t.holes.map(h => ({ par: h.par, yds: +h.yds })) })) });
     await reload(); S.err = ''; S.screen = 'courses';
   },
-  delCourse: async () => { if (!arm('delCourse')) return; await db.put('courses', { ...S.courses.find(c => c.id === S.ec.id), deleted_at: new Date().toISOString() }); await reload(); S.screen = 'courses'; },
+  delCourse: async () => { if (!canDelete(S.ec) || !arm('delCourse')) return; if (homeId() === S.ec.id) await setPref('home_course', null); await db.put('courses', { ...S.courses.find(c => c.id === S.ec.id), deleted_at: new Date().toISOString() }); await reload(); S.screen = 'courses'; },
   sampleCourse: async () => {
     await db.put('courses', { id: db.uuid(), name: 'Marsh Creek GC (sample)', deleted_at: null, tees: [
       { name: 'Blue', holes: SAMPLE.pars.map((p, i) => ({ par: p, yds: SAMPLE.yds[i] })) },
@@ -561,7 +598,8 @@ const A = {
   signIn: async () => {
     const em = S.email.trim();
     if (!/^\S+@\S+\.\S+$/.test(em)) { S.sync.error = 'Enter a valid email.'; return; }
-    S.sync.error = ''; await sync.signIn(em); S.sent = true;
+    S.sync.error = '';
+    try { await sync.signIn(em); S.sent = true; } catch (e) { S.sync.error = e.message || String(e); }
   },
   syncNow: () => { kick(true); return false; },
   signOut: async () => { await sync.signOut(); S.sync = { state: 'signed-out', at: 0, email: null, error: '' }; S.sent = false; }
@@ -575,6 +613,7 @@ async function importFile(f) {
     let n = 0;
     for (const s of ['courses', 'rounds', 'holes']) for (const r of d[s] || []) {
       const l = await db.get(s, r.id);
+      if (s === 'courses' && l) continue; // courses may be shared: a backup never overwrites one that's already here
       if (!l || Date.parse(l.updated_at) < Date.parse(r.updated_at)) { await db.putRaw(s, { ...r, dirty: 1 }); n++; }
     }
     await reload(); render(); kick(true);
@@ -591,6 +630,7 @@ async function runSync() {
     const r = await sync.sync();
     S.sync.state = r.status; S.sync.error = '';
     if (r.email) S.sync.email = r.email;
+    if (r.uid && r.uid !== S.uid) { S.uid = r.uid; await db.setMeta('uid', r.uid); }
     if (r.status === 'ok') { S.sync.at = Date.now(); if (r.changed) await reload(); }
     soft(r.changed);
   } catch (e) { S.sync.state = 'error'; S.sync.error = e.message || String(e); soft(false); }
@@ -609,7 +649,7 @@ $.addEventListener('click', async e => {
   catch (err) { console.error(err); alert(err.message || String(err)); render(); }
 });
 const IN = {
-  cname: v => { S.ec.name = v; },
+  cname: v => { S.ec.name = v; const el = document.getElementById('dupHint'); if (el) el.innerHTML = dupHtml(S.ec); },
   tname: v => { S.ec.tees[S.et].name = v; },
   yds: (v, el) => { S.ec.tees[S.et].holes[+el.dataset.i].yds = v.replace(/\D/g, ''); const t = document.getElementById('teeTot'); if (t) t.textContent = teeTot(); },
   nrDate: v => { S.nr.date = v; },
@@ -640,6 +680,17 @@ function applyLevel(k) { S.level = LEVELS.levels[k] ? k : 'scratch'; B.adjust = 
 const baseLbl = () => (LEVELS.levels[S.level]?.label || 'Scratch') + ' (est.)';
 const levelShort = () => (LEVELS.levels[S.level]?.label || 'Scratch').replace(' handicap', ' hcp');
 
+// The home course used to be a flag on the course record. Shared courses can't hold a personal choice, so move it to prefs once.
+async function migrateHome() {
+  if (await db.getMeta('mig:home-pref')) return;
+  const flagged = (await db.all('courses')).filter(c => 'home' in c);
+  const h = flagged.find(c => c.home && !c.deleted_at);
+  if (h && !homeId()) await setPref('home_course', h.id);
+  for (const c of flagged) { const { home, dirty, ...rest } = c; await db.put('courses', rest); }
+  await db.setMeta('mig:home-pref', 1);
+  await reload();
+}
+
 // ---- boot
 (async () => {
   try { applyTheme(await db.getMeta('theme')); } catch { applyTheme('black'); }
@@ -647,7 +698,9 @@ const levelShort = () => (LEVELS.levels[S.level]?.label || 'Scratch').replace(' 
   try { LEVELS = await (await fetch(new URL('../baseline/handicap-levels-v1.json', import.meta.url))).json(); } catch (e) { console.warn('Handicap levels not loaded; using scratch', e); }
   applyLevel(await db.getMeta('baseline_level'));
   await reload();
+  await migrateHome();
   render();
-  if (sync.enabled()) { const s = await sync.session(); S.sync.email = s?.user?.email || null; S.sync.state = s ? 'ok' : 'signed-out'; }
+  S.uid = (await db.getMeta('uid')) || null;
+  if (sync.enabled()) { const s = await sync.session(); S.sync.email = s?.user?.email || null; S.sync.state = s ? 'ok' : 'signed-out'; if (s?.user?.id) { S.uid = s.user.id; await db.setMeta('uid', S.uid); } }
   kick(true);
 })();

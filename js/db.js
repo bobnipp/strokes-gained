@@ -1,18 +1,19 @@
-// IndexedDB wrapper. Stores: courses, rounds, holes (index round_id), meta (key/value).
+// IndexedDB wrapper. Stores: courses, rounds, holes (index round_id), prefs (per-user settings that sync), meta (key/value, this device only).
 // put() is a local edit: stamps updated_at, marks dirty, notifies listeners (triggers sync).
 // putRaw() writes as-is (used by sync and import).
-const NAME = 'strokes-gained', VERSION = 1;
+const NAME = 'strokes-gained', VERSION = 2;
 let dbp; const listeners = [];
 
 function open() {
   return dbp ??= new Promise((res, rej) => {
     const r = indexedDB.open(NAME, VERSION);
     r.onupgradeneeded = () => {
-      const d = r.result;
-      d.createObjectStore('courses', { keyPath: 'id' });
-      d.createObjectStore('rounds', { keyPath: 'id' });
-      d.createObjectStore('holes', { keyPath: 'id' }).createIndex('round_id', 'round_id');
-      d.createObjectStore('meta');
+      const d = r.result, has = n => d.objectStoreNames.contains(n);
+      if (!has('courses')) d.createObjectStore('courses', { keyPath: 'id' });
+      if (!has('rounds')) d.createObjectStore('rounds', { keyPath: 'id' });
+      if (!has('holes')) d.createObjectStore('holes', { keyPath: 'id' }).createIndex('round_id', 'round_id');
+      if (!has('meta')) d.createObjectStore('meta');
+      if (!has('prefs')) d.createObjectStore('prefs', { keyPath: 'id' }); // v2
     };
     r.onsuccess = () => res(r.result);
     r.onerror = () => rej(r.error);

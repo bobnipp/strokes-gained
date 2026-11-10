@@ -12,6 +12,7 @@ Personal strokes-gained tracker. Static web app: no build step, no server code.
 - `baseline/broadie-2011-scratch-v1.json`: expected-strokes table + scratch offset.
 - `baseline/handicap-levels-v1.json`: estimated 5/10/15-handicap adjustments.
 - `supabase/schema.sql`: run once in Supabase SQL Editor.
+- `supabase/shared-courses.sql`: run once after schema.sql to share courses (see below).
 - `tests.html`: open in a browser to check the calculation.
 
 ## Run locally
@@ -43,6 +44,40 @@ phones keep the old files. After an update downloads, the home screen shows
 
 Install: iPhone Safari → Share → Add to Home Screen. Android Chrome → menu →
 Install app. Installing also stops iOS from clearing stored rounds.
+
+## Shared courses (invite-only)
+Courses are shared by everyone signed in: anyone can add or fix a course; only
+the person who added it can delete it (others get "Hide from my list"). Rounds,
+hole scores and personal settings (home course, hidden courses) stay private.
+Every course edit saves the previous version in `course_history`.
+
+One-time setup in Supabase:
+1. **SQL Editor:** run `supabase/shared-courses.sql` (after `schema.sql`). Safe to re-run.
+2. **Turn off public sign-ups:** Authentication → Sign In / Providers →
+   "Allow new users to sign up" off. (The app also never creates accounts from
+   the sign-in link, so an uninvited email just gets "hasn't been invited".)
+3. **Check redirect URLs:** Authentication → URL Configuration → Site URL is your
+   Pages URL, so invite and sign-in links open the app.
+
+Inviting someone: Authentication → Users → Add user → Send invitation, enter
+their email. They open the invite link on their phone (or open the app, tap
+the sync dot and request a sign-in link with that email). After their first
+sync they see every shared course.
+
+Note: courses you added before this change become visible to people you
+invite. Deleted ones stay hidden in the app.
+
+Undo a bad course edit (SQL Editor). Find the course id in the app's backup
+export, or with `select id, data->>'name' from courses;`:
+
+    -- versions of one course, newest first
+    select id, replaced_at, data->>'name' as name, deleted_at from course_history
+      where course_id = 'COURSE-ID' order by replaced_at desc;
+    -- put back version HISTORY-ID
+    update courses set data = h.data, deleted_at = h.deleted_at, updated_at = now()
+      from course_history h where h.id = HISTORY-ID and courses.id = h.course_id;
+
+Phones pick up the restored version on their next sync.
 
 ## Next step
 5. Deploy: GitHub repo → Cloudflare Pages. Create a Supabase project, run

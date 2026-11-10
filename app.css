@@ -183,3 +183,4 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:.92em}
 .opts .sw{display:inline-block;width:10px;height:10px;margin-right:4px;flex:none}
 .opts .sw+.sw{margin-right:8px}
 .opts>button.on .sw{box-shadow:0 0 0 1px var(--color-bg)}
+.dup{margin:0;font:400 12px/1.4 var(--font-body);color:var(--color-neutral-700)}.dup:empty{display:none}.dup .link{font-size:12px}
