@@ -184,3 +184,28 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:.92em}
 .opts .sw+.sw{margin-right:8px}
 .opts>button.on .sw{box-shadow:0 0 0 1px var(--color-bg)}
 .dup{margin:0;font:400 12px/1.4 var(--font-body);color:var(--color-neutral-700)}.dup:empty{display:none}.dup .link{font-size:12px}
+/* score box (hole card + saved-round editor) */
+.sbox{border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider)}
+.sbox.adj{background:var(--color-accent-100)}
+.sbox-row{display:grid;grid-template-columns:56px 1fr 56px}
+.sb{border:0;background:transparent;font:600 26px var(--font-body)}
+.sb:first-child{border-right:1px solid var(--color-divider)}.sb:last-child{border-left:1px solid var(--color-divider)}
+.sb:hover:not(:disabled){background:var(--color-neutral-200)}.sb:disabled{color:var(--color-neutral-400);cursor:default}
+.sbox-mid{padding:10px 0;display:flex;flex-direction:column;align-items:center;gap:4px}
+.sbv{display:flex;align-items:baseline;gap:8px}
+.sbv b{font:800 44px/.9 var(--font-heading);font-variant-numeric:tabular-nums}
+.sbv span{font:600 13px var(--font-body);color:var(--color-neutral-700)}
+.sbs{font:400 11px/1.2 var(--font-body);color:var(--color-neutral-700)}
+.sbox.adj .sbs{color:var(--color-accent-700)}
+.sbox-to{border-top:1px solid var(--color-divider);padding:10px 18px 12px;display:flex;flex-direction:column;gap:8px}
+.sbox-to .lbl{display:flex;justify-content:space-between;align-items:baseline}
+.sbox-to .link{font-size:12px}
+.sbox-to .opts{background:var(--color-bg)}
+.sbox-to .opts>button{height:38px;font-size:13px}
+.sbox-cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--color-divider)}
+.sbox-cats>div{padding:8px 0 9px 18px;display:flex;flex-direction:column;gap:4px}
+.sbox-cats>div+div{border-left:1px solid var(--color-divider)}
+.sbox-cats>div.hit{background:color-mix(in srgb,var(--color-accent) 12%,transparent)}
+.sbox-cats .kicker{font-size:9px}
+.sbox-cats b{font:800 14px/1 var(--font-heading);font-variant-numeric:tabular-nums}
+.tile .xtag{align-self:flex-start;margin-top:6px;font:700 11px/1 var(--font-body);padding:4px 6px;border:1px solid currentColor}

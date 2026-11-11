@@ -1,5 +1,5 @@
 import * as db from './db.js';
-import { loadBaseline, holeSG } from './sg.js';
+import { loadBaseline, holeSG, defaultExtraTo } from './sg.js';
 import * as sync from './sync.js';
 
 const $ = document.getElementById('app');
@@ -119,7 +119,7 @@ function defEntry({ par, yds }) {
     tee_result: par === 3 ? null : 'fairway', go_for_green_on: par === 5 ? 3 : null,
     layup_from_yds: par === 5 ? Math.max(120, r5(yds - 275)) : null, layup_lie: par === 5 ? 'fairway' : null,
     approach_from_yds: par === 4 ? Math.max(60, r5(yds - 270)) : par === 5 ? 90 : yds,
-    approach_result: 'green', short_game_shots: 1, first_putt_ft: 20, putts: 2
+    approach_result: 'green', short_game_shots: 1, first_putt_ft: 20, putts: 2, extra_strokes: 0, extra_to: null
   };
 }
 function draftFor(r, i) {
@@ -134,6 +134,8 @@ function normalize(h, d) {
   if (!(h.par === 5 && e.go_for_green_on === 3)) { e.layup_from_yds = null; e.layup_lie = null; }
   if (e.approach_result === 'green') e.short_game_shots = 0;
   if (!e.putts) e.first_putt_ft = null;
+  e.extra_strokes = Math.trunc(e.extra_strokes || 0);
+  e.extra_to = e.extra_strokes ? (e.extra_to || defaultExtraTo(h.par)) : null;
   return e;
 }
 function openHole(i) { S.cur = i; S.draft = draftFor(active(), i); S.screen = 'card'; }
@@ -281,29 +283,44 @@ function holeForm(h, d) {
   return rows.join('');
 }
 
+// Score box: counted from the shots, with − / + for strokes the questions don't capture, charged to one category.
+const extraTxt = x => `${x > 0 ? '+' : '−'}${Math.abs(x)} extra stroke${Math.abs(x) === 1 ? '' : 's'}`;
+function scoreBox(h, d) {
+  const c = holeSG(B, h, d), x = c.extra, base = c.score - x, to = c.extraTo;
+  return `<div class="sbox${x ? ' adj' : ''}">
+    <div class="sbox-row"><button class="sb" data-a="extra"${V(-1)} aria-label="One fewer stroke"${c.score <= 1 ? ' disabled' : ''}>−</button>
+      <div class="sbox-mid"><span class="kicker">Score</span><span class="sbv"><b>${c.score}</b><span>${scoreName(c.score, h.par)}</span></span><span class="sbs">${x ? `Shots add up to ${base} · ${extraTxt(x)}` : 'Counted from your shots'}</span></div>
+      <button class="sb" data-a="extra"${V(1)} aria-label="One more stroke">+</button></div>
+    ${x ? `<div class="sbox-to"><div class="lbl"><span class="kicker neg">${extraTxt(x)} charged to</span>${L('extraReset', `Reset to ${base}`, 'u')}</div>${opts('extraTo', to, KEYS, KEYS.map(k => SHORT[k]))}</div>` : ''}
+    <div class="sbox-cats">${KEYS.map(k => { const v = c.cats[k]; return `<div${x && k === to ? ' class="hit"' : ''}><span class="kicker">${SHORT[k]}</span><b class="${v == null ? '' : neg(v)}">${v == null ? '—' : fmt(v)}</b></div>`; }).join('')}</div>
+  </div>`;
+}
+const draftHole = () => (S.screen === 'editCard' ? viewed() : active()).holes_snapshot[S.cur];
+
 function card() {
   const a = active(), i = S.cur, h = a.holes_snapshot[i], d = S.draft, c = holeSG(B, h, d), st = stats(a);
   return `${bar(homeL() + L('openEnd', 'End round', 'red'), L('roundActive', `Round ${fmt(st.total)} thru ${st.n} ›`, neg(st.total)))}
-  <div class="head split"><div class="col"><span class="kicker">Hole ${i + 1} · Par ${h.par} · ${h.yds} yds</span><h1 class="h1">Hole ${i + 1}</h1></div><div class="score"><span class="sv">${c.score}</span><span class="sn">${scoreName(c.score, h.par)}</span></div></div>
+  <div class="head"><span class="kicker">Hole ${i + 1} · Par ${h.par} · ${h.yds} yds</span><h1 class="h1">Hole ${i + 1}</h1></div>
   <div class="rule-b">${strip(st, i, true)}</div>
-  <div class="scroll">${holeForm(h, d)}</div>
+  <div class="scroll">${scoreBox(h, d)}${holeForm(h, d)}</div>
   ${cta('saveHole', `Save hole ${i + 1} · ${fmt(c.total)}`)}`;
 }
 
 // ---- editing a saved round (it stays saved; each hole writes on Save)
 const viewed = () => S.rounds.find(x => x.id === S.viewId);
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-const fields = e => e ? Object.fromEntries(Object.keys(defEntry({ par: 4, yds: 400 })).map(k => [k, e[k] ?? null])) : null;
+// Shot fields for comparing a draft with what's saved. Holes saved before the score box have no extra_strokes: same as 0.
+const fields = e => e ? Object.fromEntries(Object.keys(defEntry({ par: 4, yds: 400 })).map(k => [k, k === 'extra_strokes' ? (e[k] || 0) : e[k] ?? null])) : null;
 function editCard() {
   const r = viewed(); if (!r) { S.screen = 'home'; return home(); }
   const i = S.cur, h = r.holes_snapshot[i], d = S.draft, c = holeSG(B, h, d), e = entry(r, i), was = e ? holeSG(B, h, e) : null;
   const changed = !e || !same(fields(normalize(h, d)), fields(e)), ix = idxs(r), k = ix.indexOf(i);
   const nav = `<span class="grp" style="gap:0">${L('editNav', '‹', 'navb', ix[(k - 1 + ix.length) % ix.length])}<span class="link" style="padding:0 4px">Hole ${i + 1} of ${ix.length}</span>${L('editNav', '›', 'navb', ix[(k + 1) % ix.length])}</span>`;
   return `${bar(L('go', '‹ Round', '', 'round'), nav)}
-  <div class="head split"><div class="col"><span class="kicker neg">Editing saved round · Par ${h.par} · ${h.yds} yds</span><h1 class="h1">Hole ${i + 1}</h1></div><div class="score"><span class="sv">${c.score}</span><span class="sn">${scoreName(c.score, h.par)}</span></div></div>
+  <div class="head"><span class="kicker neg">Editing saved round · Par ${h.par} · ${h.yds} yds</span><h1 class="h1">Hole ${i + 1}</h1></div>
   <div class="kv cmp"><div><span class="kicker">Saved</span><b>${was ? `${was.score} · ${scoreName(was.score, h.par)} · ${fmt(was.total)}` : 'Not carded'}</b></div>
     <div class="${changed ? 'chg' : ''}"><span class="kicker">${changed ? 'Your edit' : 'No changes yet'}</span><b>${changed ? `${c.score} · ${scoreName(c.score, h.par)} · ${fmt(c.total)}` : '—'}</b></div></div>
-  <div class="scroll">${holeForm(h, d)}</div>
+  <div class="scroll">${scoreBox(h, d)}${holeForm(h, d)}</div>
   <div class="two" style="grid-template-columns:1fr 1.6fr"><button class="sheet-row${changed && e ? ' red' : ''}" data-a="editRevert">Revert</button>${cta('editSave', `Save hole ${i + 1} · ${fmt(c.total)}`)}</div>`;
 }
 
@@ -337,7 +354,7 @@ function hole() {
   return `${bar(homeL() + L('openEnd', 'End round', 'red'), L('editHole', 'Edit card', 'u'))}
   <div class="scroll">
     <div class="head"><span class="kicker">Hole ${i + 1} · Par ${c.par} · ${c.yds} yds</span><h1 class="h1">${scoreName(c.score, c.par)}, ${fmt(c.total)} ${c.total >= -0.005 ? 'gained' : 'lost'}</h1></div>
-    <div class="tiles">${KEYS.map(k => { const x = cats[k]; return `<div class="tile${x === null ? ' na' : x < -0.005 ? ' lost' : x > 0.005 ? ' won' : ''}"><span class="kicker">${NAME[k]}</span><div class="col"><span class="v">${x === null ? '—' : fmt(x)}</span><span class="s">${esc(subs[k])}</span></div></div>`; }).join('')}</div>
+    <div class="tiles">${KEYS.map(k => { const x = cats[k]; return `<div class="tile${x === null ? ' na' : x < -0.005 ? ' lost' : x > 0.005 ? ' won' : ''}"><span class="kicker">${NAME[k]}</span><div class="col"><span class="v">${x === null ? '—' : fmt(x)}</span><span class="s">${esc(subs[k])}</span>${c.extra && k === c.extraTo ? `<span class="xtag">incl. ${extraTxt(c.extra)}</span>` : ''}</div></div>`; }).join('')}</div>
     <div class="pad kicker" style="padding-bottom:8px;display:flex;justify-content:space-between"><span>Round so far · thru ${st.n}</span><span class="${neg(st.total)}">${fmt(st.total)}</span></div>
     ${strip(st, i, false)}
   </div>
@@ -509,6 +526,14 @@ const A = {
   resume: () => openHole(firstOpen(active())),
   roundActive: () => { S.viewId = null; S.from = null; S.screen = 'round'; },
   viewRound: id => { S.from = S.screen === 'progress' ? 'progress' : null; S.viewId = id; S.screen = 'round'; S.arm = null; S.editing = false; S.orig = null; },
+  extra: n => {
+    const h = draftHole(), c = holeSG(B, h, S.draft);
+    if (n < 0 && c.score <= 1) return;
+    const x = (S.draft.extra_strokes || 0) + n;
+    S.draft = { ...S.draft, extra_strokes: x, extra_to: x ? (S.draft.extra_to || defaultExtraTo(h.par)) : null };
+  },
+  extraReset: () => { S.draft = { ...S.draft, extra_strokes: 0, extra_to: null }; },
+  extraTo: k => { S.draft = { ...S.draft, extra_to: k }; },
   progRange: v => { S.prog.range = v; },
   setLevel: async k => { applyLevel(k); await db.setMeta('baseline_level', S.level); },
   setTheme: async t => { applyTheme(t); await db.setMeta('theme', t); },

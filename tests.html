@@ -64,6 +64,26 @@ for (const [k, lv] of Object.entries(L.levels)) {
   check(`${lv.label} baseline: adds ${lv.strokes_per_18} per typical 18, categories still sum`, good, '12 combinations');
 }
 
+// Extra strokes from the score box: score +x, total −x, only the charged category moves, categories still sum.
+{
+  const e4 = { ...base, approach_from_yds: 165, approach_result: 'green', first_putt_ft: 22, putts: 2 };
+  const h4 = { par: 4, yds: 418 }, r0 = holeSG(B, h4, e4), r2 = holeSG(B, h4, { ...e4, extra_strokes: 2 });
+  check('Extra strokes: +2 on a par 4 go to off the tee by default', r2.score === r0.score + 2 && near(r2.total, r0.total - 2) && near(r2.cats.ott, r0.cats.ott - 2)
+    && near(r2.cats.app, r0.cats.app) && near(r2.cats.putt, r0.cats.putt) && near(sumCats(r2), r2.total) && r2.extraTo === 'ott',
+    `score ${r0.score} → ${r2.score} · tee ${r0.cats.ott.toFixed(3)} → ${r2.cats.ott.toFixed(3)} · total ${r2.total.toFixed(3)}`);
+  const rp = holeSG(B, h4, { ...e4, extra_strokes: 1, extra_to: 'putt' });
+  check('Extra strokes: charged to putting when chosen', near(rp.cats.putt, r0.cats.putt - 1) && near(rp.cats.ott, r0.cats.ott) && near(sumCats(rp), rp.total));
+  const ra = holeSG(B, h4, { ...e4, extra_strokes: 1, extra_to: 'arg' });
+  check('Extra strokes: around green on a hole that hit the green', near(ra.cats.arg, -1) && near(sumCats(ra), ra.total), `arg ${ra.cats.arg}`);
+  const e3 = { ...base, tee_result: null, approach_from_yds: 180, approach_result: 'green', first_putt_ft: 30, putts: 2 };
+  const p0 = holeSG(B, { par: 3, yds: 180 }, e3), p1 = holeSG(B, { par: 3, yds: 180 }, { ...e3, extra_strokes: 1 });
+  check('Extra strokes: par 3 defaults to approach', p1.cats.ott === null && near(p1.cats.app, p0.cats.app - 1) && p1.extraTo === 'app' && near(sumCats(p1), p1.total));
+  const m1 = holeSG(B, h4, { ...e4, extra_strokes: -1 });
+  check('Fewer strokes: −1 gives the stroke back', m1.score === r0.score - 1 && near(m1.total, r0.total + 1) && near(sumCats(m1), m1.total));
+  const BL = { ...B, adjust: L.levels.h10.adjust }, q0 = holeSG(BL, { par: 3, yds: 180 }, e3), q1 = holeSG(BL, { par: 3, yds: 180 }, { ...e3, extra_strokes: 1, extra_to: 'ott' });
+  check('Extra strokes with a handicap baseline: adjustment unchanged', near(q1.total, q0.total - 1) && near(q1.cats.ott, -1) && near(sumCats(q1), q1.total));
+}
+
 const pass = rows.filter(r => r.ok).length;
 document.getElementById('sum').textContent = `${pass} of ${rows.length} passed · baseline ${B.id}`;
 document.getElementById('out').innerHTML = rows.map(r => `<tr><td class="${r.ok ? '' : 'fail'}">${r.ok ? 'Pass' : 'FAIL'}</td><td>${r.name}<br><span style="color:var(--color-neutral-700);font-size:12px">${r.detail}</span></td></tr>`).join('');

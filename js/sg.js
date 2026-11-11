@@ -22,6 +22,9 @@ export function expected(B, lie, d) {
 // The hole card doesn't record short-game distance; these are the assumed starting points.
 export const OFF_GREEN_YDS = { fringe: 5, rough: 10, sand: 10 };
 
+export const EXTRA_TO = ['ott', 'app', 'arg', 'putt'];
+export const defaultExtraTo = par => par === 3 ? 'app' : 'ott';
+
 // h = {par, yds}; e = HoleEntry fields. Returns score, per-category SG (null = not applicable) and total.
 export function holeSG(B, h, e) {
   const E = (lie, d) => expected(B, lie, d), { par, yds } = h;
@@ -53,5 +56,16 @@ export function holeSG(B, h, e) {
     if (arg !== null) { arg += adj.arg; total += adj.arg; }
     if (putt !== null) { putt += adj.putt; total += adj.putt; }
   }
-  return { par, yds, score, cats: { ott, app, arg, putt }, total, A, d1, pen, layup, onGreen };
+  // Extra strokes the shot questions don't capture (e.g. two to get out of the trees), entered on the score box.
+  // Each costs 1 in the chosen category (default: off the tee, or approach on a par 3). Categories still sum to the total.
+  const x = Math.trunc(e.extra_strokes || 0);
+  const extraTo = x ? (EXTRA_TO.includes(e.extra_to) ? e.extra_to : defaultExtraTo(par)) : null;
+  if (x) {
+    if (extraTo === 'ott') ott = (ott ?? 0) - x;
+    else if (extraTo === 'app') app -= x;
+    else if (extraTo === 'arg') arg = (arg ?? 0) - x;
+    else putt = (putt ?? 0) - x;
+    score += x; total -= x;
+  }
+  return { par, yds, score, cats: { ott, app, arg, putt }, total, A, d1, pen, layup, onGreen, extra: x, extraTo };
 }
