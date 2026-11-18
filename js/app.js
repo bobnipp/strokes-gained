@@ -8,7 +8,7 @@ const S = {
   screen: 'home', courses: [], rounds: [], holes: {}, cur: 0, draft: null, viewId: null,
   pad: null, sheet: null, arm: null, ec: null, et: 0, err: '',
   nr: { courseId: null, tee: null, range: '18', date: today() },
-  sync: { state: 'off', at: 0, email: null, error: '' }, email: '', sent: false, update: false, theme: 'black',
+  sync: { state: 'off', at: 0, email: null, error: '' }, email: '', sent: false, update: false,
   prog: { range: '10', cat: 'total' }, from: null, level: 'scratch', prefs: {}, uid: null, showHidden: false
 };
 const KEYS = ['ott', 'app', 'arg', 'putt'];
@@ -429,7 +429,7 @@ function progress() {
     <div class="grid3" style="grid-template-columns:1fr 1fr"><div class="stat"><span class="kicker">Avg / round</span><span class="big${neg(avg)}">${fmt1(avg)}</span></div>
       <div class="stat"><span class="kicker">Trend</span><span class="big">${ch ? arrow(ch.d) : '—'}</span><span class="meta" style="font-size:11px">${ch ? ch.note : 'needs 4+ rounds'}</span></div></div>
     <div class="pad" style="padding-bottom:0">${chart(pts, { label: `${LONG[k]} per round, ${rl}, average ${fmt1(avg)}` })}</div>
-    <div class="legend" style="padding-top:8px"><span><i style="background:var(--gain)"></i>Gained</span><span><i style="background:var(--color-accent)"></i>Lost</span><span><i style="height:3px;vertical-align:3px;background:var(--color-text)"></i>5-round avg</span>${win.some(x => x.nine) ? '<span><i class="nine-sw"></i>9 holes (×2)</span>' : ''}</div>
+    <div class="legend" style="padding-top:8px"><span><i style="background:var(--gain)"></i>Gained</span><span><i style="background:var(--color-accent)"></i>Lost</span><span><i style="height:3px;vertical-align:3px;background:var(--color-text)"></i>5-round avg</span>${win.some(x => x.nine) ? '<span><i class="nine-sw g"></i><i class="nine-sw l"></i>9 holes (×2)</span>' : ''}</div>
     <div class="pad kicker" style="padding-bottom:8px;padding-top:22px;display:flex;justify-content:space-between"><span>By category</span><span>avg · change</span></div>
     <div class="rule">${rows}</div>
     ${notes.length ? `<div class="notes">${notes.map(([l, t]) => `<div class="note"><span class="kicker">${l}</span><b>${esc(t)}</b></div>`).join('')}</div>` : ''}
@@ -450,8 +450,6 @@ function settings() {
     <p class="body pad meta" style="font-size:12px;padding-top:10px">${sync.enabled() ? 'Sync keeps your rounds on the server. A backup file is an extra copy you control.' : 'Until sync is set up, rounds live only on this phone. Export a backup now and then.'}</p>
     ${sec('Strokes gained', [
       `<div class="q" style="border-bottom:0"><div class="lbl"><span class="t" style="font:600 13px var(--font-body)">Compare against</span><span class="hint">a typical round · est.</span></div>${opts('setLevel', S.level, Object.keys(LEVELS.levels), Object.values(LEVELS.levels).map(l => l.label.replace(' handicap', ' hcp')))}<span class="meta" style="font-size:12px">0 means you played like a typical ${esc(LEVELS.levels[S.level].label.toLowerCase())} golfer${S.level === 'scratch' ? '' : `, about ${LEVELS.levels[S.level].strokes_per_18} strokes per 18 behind scratch`}. Every round recalculates.</span></div>`])}
-    ${sec('Display', [
-      `<div class="q" style="border-bottom:0"><div class="lbl"><span class="t" style="font:600 13px var(--font-body)">Color theme</span><span class="hint">gained · lost</span></div>${opts('setTheme', S.theme, ['black', 'green'], ['<i class="sw" style="background:#201e1d"></i><i class="sw" style="background:#ec3013"></i>Red / Black', '<i class="sw" style="background:#1f8a4c"></i><i class="sw" style="background:#ec3013"></i>Red / Green'])}</div>`])}
     ${sec('About', [
       `<div class="menu-row" style="cursor:default"><span>Expected-strokes table</span><span class="m">${esc(B.id)}</span></div>`,
       `<div class="menu-row" style="cursor:default"><span>Saved on this phone</span><span class="m">${plural(S.courses.length, 'course')} · ${plural(S.rounds.filter(r => r.status === 'saved').length, 'round')}</span></div>`])}
@@ -536,7 +534,6 @@ const A = {
   extraTo: k => { S.draft = { ...S.draft, extra_to: k }; },
   progRange: v => { S.prog.range = v; },
   setLevel: async k => { applyLevel(k); await db.setMeta('baseline_level', S.level); },
-  setTheme: async t => { applyTheme(t); await db.setMeta('theme', t); },
   progCat: v => { S.prog.cat = v; },
   hole: i => openHole(i),
   openEnd: () => { S.sheet = 'end'; S.pad = null; S.arm = null; },
@@ -696,9 +693,6 @@ if ('serviceWorker' in navigator && location.protocol !== 'file:') {
 }
 navigator.storage?.persist?.();
 
-// ---- color theme (per device, not synced): 'black' = gained in black, 'green' = gained in green; lost is red in both.
-function applyTheme(t) { S.theme = t === 'green' ? 'green' : 'black'; document.documentElement.dataset.theme = S.theme; }
-
 // ---- strokes-gained baseline level (per device): scratch, or a typical 5/10/15-handicap round. See baseline/handicap-levels-v1.json.
 let LEVELS = { levels: { scratch: { label: 'Scratch', strokes_per_18: 0, adjust: null } } };
 function applyLevel(k) { S.level = LEVELS.levels[k] ? k : 'scratch'; B.adjust = LEVELS.levels[S.level].adjust; }
@@ -718,7 +712,6 @@ async function migrateHome() {
 
 // ---- boot
 (async () => {
-  try { applyTheme(await db.getMeta('theme')); } catch { applyTheme('black'); }
   B = await loadBaseline(new URL('../baseline/broadie-2011-scratch-v1.json', import.meta.url));
   try { LEVELS = await (await fetch(new URL('../baseline/handicap-levels-v1.json', import.meta.url))).json(); } catch (e) { console.warn('Handicap levels not loaded; using scratch', e); }
   applyLevel(await db.getMeta('baseline_level'));
