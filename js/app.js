@@ -49,7 +49,7 @@ function history() {
   return S.rounds.filter(r => r.status === 'saved').map(r => ({ r, st: stats(r) })).filter(x => x.st.n > 0).reverse().map(({ r, st }) => {
     const f = 18 / st.n, cats = {};
     for (const k of KEYS) cats[k] = st.cats[k] * f;
-    return { id: r.id, date: r.played_on, course: r.course_name, cats, total: st.total * f };
+    return { id: r.id, date: r.played_on, course: r.course_name, cats, total: st.total * f, nine: r.range === 'front' || r.range === 'back' };
   });
 }
 const mean = a => a.length ? sum(a, x => x) / a.length : 0;
@@ -62,7 +62,7 @@ function change(win, prev, k) {
   if (win.length >= 4) { const h = win.length >> 1; return { d: m(win.slice(h)) - m(win.slice(0, h)), note: 'recent half vs earlier' }; }
   return null;
 }
-// Bar per round (dark = gained, red = lost), optional axis, rolling-average line and tap-to-open.
+// Bar per round (dark = gained, red = lost; 9-hole rounds lighter), optional axis, rolling-average line and tap-to-open.
 function chart(pts, { h = 180, axis = true, label = '' } = {}) {
   const W = 340, X0 = axis ? 30 : 0, top = 8, bot = h - 8, vs = pts.flatMap(p => p.avg != null ? [p.v, p.avg] : [p.v]);
   const mx = Math.max(0, ...vs), mn = Math.min(0, ...vs), raw = Math.max(1, mx - mn);
@@ -74,7 +74,7 @@ function chart(pts, { h = 180, axis = true, label = '' } = {}) {
   else s += `<line class="zero" x1="0" x2="${W}" y1="${y0}" y2="${y0}"/>`;
   pts.forEach((p, i) => {
     const yv = y(p.v), x = X0 + i * slot;
-    s += `<rect class="${p.v >= 0 ? 'bg' : 'bl'}" x="${(x + slot * 0.18).toFixed(1)}" y="${Math.min(y0, yv).toFixed(1)}" width="${Math.max(1, slot * 0.64).toFixed(1)}" height="${Math.max(1.5, Math.abs(yv - y0)).toFixed(1)}"/>`;
+    s += `<rect class="${p.v >= 0 ? 'bg' : 'bl'}${p.nine ? ' nine' : ''}" x="${(x + slot * 0.18).toFixed(1)}" y="${Math.min(y0, yv).toFixed(1)}" width="${Math.max(1, slot * 0.64).toFixed(1)}" height="${Math.max(1.5, Math.abs(yv - y0)).toFixed(1)}"/>`;
     if (p.id) s += `<rect class="hit" x="${x.toFixed(1)}" y="0" width="${slot.toFixed(1)}" height="${h}" data-a="viewRound"${V(p.id)}><title>${esc(p.title)}</title></rect>`;
   });
   const line = pts.filter(p => p.avg != null).map((p, i, a) => [X0 + pts.indexOf(p) * slot + slot / 2, y(p.avg)]);
@@ -190,7 +190,7 @@ function home() {
     <button class="trend rule rule-b" data-a="go"${V('progress')}>
       <span class="trend-top"><span class="col"><span class="big${neg(avg)}" style="font-size:34px">${fmt1(avg)}</span><span class="meta">avg SG per round</span></span>
         ${ch ? `<span class="col" style="align-items:flex-end"><span class="delta">${arrow(ch.d)}</span><span class="meta">${ch.note}</span></span>` : ''}</span>
-      ${chart(win.map(x => ({ v: x.total })), { h: 56, axis: false })}
+      ${chart(win.map(x => ({ v: x.total, nine: x.nine })), { h: 56, axis: false })}
       <span class="trend-cats">${KEYS.map(k => { const a = mean(win.map(x => x.cats[k])), c = change(win, prev, k); return `<span class="col" style="gap:4px"><span class="kicker">${SHORT[k]}</span><span class="cv${neg(a)}">${fmt1(a)}</span><span class="m">${c ? arrow(c.d) : '—'}</span></span>`; }).join('')}</span>
       <span class="trend-more">See progress ›</span>
     </button>`;
@@ -413,7 +413,7 @@ function progress() {
   const avg = mean(win.map(x => pv(x, k))), ch = change(win, prev, k), rl = `${win.length} round${win.length === 1 ? '' : 's'}`;
   const pts = win.map((x, i) => {
     const gi = off + i, v = pv(x, k);
-    return { v, id: x.id, title: `${dfmt(x.date)} · ${x.course} · ${fmt1(v)}`, avg: gi >= 1 ? mean(hist.slice(Math.max(0, gi - 4), gi + 1).map(z => pv(z, k))) : null };
+    return { v, id: x.id, nine: x.nine, title: `${dfmt(x.date)} · ${x.course}${x.nine ? ' · 9 holes (×2)' : ''} · ${fmt1(v)}`, avg: gi >= 1 ? mean(hist.slice(Math.max(0, gi - 4), gi + 1).map(z => pv(z, k))) : null };
   });
   const rows = ['total', ...KEYS].map(key => {
     const a = mean(win.map(x => pv(x, key))), c = change(win, prev, key);
@@ -429,11 +429,11 @@ function progress() {
     <div class="grid3" style="grid-template-columns:1fr 1fr"><div class="stat"><span class="kicker">Avg / round</span><span class="big${neg(avg)}">${fmt1(avg)}</span></div>
       <div class="stat"><span class="kicker">Trend</span><span class="big">${ch ? arrow(ch.d) : '—'}</span><span class="meta" style="font-size:11px">${ch ? ch.note : 'needs 4+ rounds'}</span></div></div>
     <div class="pad" style="padding-bottom:0">${chart(pts, { label: `${LONG[k]} per round, ${rl}, average ${fmt1(avg)}` })}</div>
-    <div class="legend" style="padding-top:8px"><span><i style="background:var(--gain)"></i>Gained</span><span><i style="background:var(--color-accent)"></i>Lost</span><span><i style="height:3px;vertical-align:3px;background:var(--color-text)"></i>5-round avg</span></div>
+    <div class="legend" style="padding-top:8px"><span><i style="background:var(--gain)"></i>Gained</span><span><i style="background:var(--color-accent)"></i>Lost</span><span><i style="height:3px;vertical-align:3px;background:var(--color-text)"></i>5-round avg</span>${win.some(x => x.nine) ? '<span><i class="nine-sw"></i>9 holes (×2)</span>' : ''}</div>
     <div class="pad kicker" style="padding-bottom:8px;padding-top:22px;display:flex;justify-content:space-between"><span>By category</span><span>avg · change</span></div>
     <div class="rule">${rows}</div>
     ${notes.length ? `<div class="notes">${notes.map(([l, t]) => `<div class="note"><span class="kicker">${l}</span><b>${esc(t)}</b></div>`).join('')}</div>` : ''}
-    <p class="body pad meta" style="font-size:12px">Each round is scaled to 18 holes. Tap a bar to open that round.</p>
+    <p class="body pad meta" style="font-size:12px">Each round is scaled to 18 holes; lighter bars are 9-hole rounds, doubled. Tap a bar to open that round.</p>
   </div>`;
 }
 
